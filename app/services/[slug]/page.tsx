@@ -1,4 +1,3 @@
-"use client";
 
 import { services } from "@/data/services";
 
