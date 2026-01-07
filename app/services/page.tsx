@@ -1,3 +1,5 @@
+"use client";
+
 import ServiceCard from "@/components/ServiceCard";
 import { services } from "@/data/services";
 

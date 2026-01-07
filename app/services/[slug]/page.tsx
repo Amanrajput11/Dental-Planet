@@ -1,3 +1,5 @@
+"use client";
+
 import { services } from "@/data/services";
 
 export default async function ServiceDetail(
