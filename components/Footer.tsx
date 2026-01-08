@@ -65,7 +65,7 @@ export default function Footer() {
                 />
 
                 <div className="mt-2" style={{ fontSize: "14px" }}>
-                  📲 Click to open WhatsApp
+                  Click to open WhatsApp
                 </div>
               </div>
             </a>

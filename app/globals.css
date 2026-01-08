@@ -7,6 +7,52 @@
   overflow: hidden;
 }
 
+
+/* ===== SECTION STYLES ===== */
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.section-subtitle {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.section-soft-bg {
+  background: #f8fafc;
+}
+
+/* ===== HERO IMPROVEMENTS ===== */
+.hero-card {
+  width: 260px;
+  height: 260px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  backdrop-filter: blur(10px);
+}
+
+.hero-icon {
+  font-size: 90px;
+}
+
+/* ===== CARD HOVER EFFECTS ===== */
+.card,
+.blog-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover,
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+
 /* subtle floating bubbles background */
 .hero-gradient::before,
 .hero-gradient::after {
@@ -228,8 +274,8 @@
 }
 
 .section-subtitle {
-  color: #6c757d;
-  max-width: 420px;
+  font-weight: bold;
+  /* max-width: 420px; */
 }
 
 /* ===== SERVICE CARD ===== */
