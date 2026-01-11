@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Image from "next/image";
 import Link from "next/link";
-import DoctorCard from "@/components/DoctorCard";
+// import DoctorCard from "@/components/DoctorCard";
 
 import { doctors } from "@/data/doctors";
 
@@ -14,7 +14,8 @@ import TestimonialCard from "@/components/TestimonialCard";
 import { testimonials } from "@/data/testimonials";
 import DoctorSection from "@/components/DoctorCard";
 
-const testimonialChunks = [];
+const testimonialChunks: (typeof testimonials)[] = [];
+
 for (let i = 0; i < testimonials.length; i += 3) {
   testimonialChunks.push(testimonials.slice(i, i + 3));
 }
@@ -278,56 +279,56 @@ export default function Home() {
           </div>
         </div>
       </section> */}
-{/* ===== DOCTORS (FULL SECTIONS) ===== */}
-<section style={{ background: "#f8fafc" }}>
-  <DoctorSection doctor={doctors[0]} />
-</section>
+      {/* ===== DOCTORS (FULL SECTIONS) ===== */}
+      <section style={{ background: "#f8fafc" }}>
+        <DoctorSection doctor={doctors[0]} />
+      </section>
 
-<section style={{ background: "#ffffff" }}>
-  <DoctorSection doctor={doctors[1]} reverse />
-</section>
+      <section style={{ background: "#ffffff" }}>
+        <DoctorSection doctor={doctors[1]} reverse />
+      </section>
 
       {/* ===== SERVICES ===== */}
       <section className="py-5">
-  <div className="container">
-    {/* HEADER */}
-    <div className="text-center mb-5">
-      <h2 className="section-title">Our Services</h2>
-      <p className="section-subtitle">
-        Complete dental care for every stage of life
-      </p>
-    </div>
-
-    {/* SERVICES (ONE FROM EACH CATEGORY) */}
-    <div className="row g-4">
-      {["services", "treatment", "surgery"].map((category) => {
-        const service = services.find((s) => s.category === category);
-
-        if (!service) return null;
-
-        return (
-          <div key={service.slug} className="col-md-4">
-            <ServiceCard
-              title={service.title}
-              slug={service.slug}
-              description={service.description}
-            />
+        <div className="container">
+          {/* HEADER */}
+          <div className="text-center mb-5">
+            <h2 className="section-title">Our Services</h2>
+            <p className="section-subtitle">
+              Complete dental care for every stage of life
+            </p>
           </div>
-        );
-      })}
-    </div>
 
-    {/* CTA */}
-    <div className="text-center mt-4">
-      <Link
-        href="/services"
-        className="btn btn-outline-primary btn-lg rounded-pill"
-      >
-        View All Services →
-      </Link>
-    </div>
-  </div>
-</section>
+          {/* SERVICES (ONE FROM EACH CATEGORY) */}
+          <div className="row g-4">
+            {["services", "treatment", "surgery"].map((category) => {
+              const service = services.find((s) => s.category === category);
+
+              if (!service) return null;
+
+              return (
+                <div key={service.slug} className="col-md-4">
+                  <ServiceCard
+                    title={service.title}
+                    slug={service.slug}
+                    description={service.description}
+                  />
+                </div>
+              );
+            })}
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-4">
+            <Link
+              href="/services"
+              className="btn btn-outline-primary btn-lg rounded-pill"
+            >
+              View All Services →
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* ===== BLOGS ===== */}
       {/* ===== BLOGS ===== */}
@@ -387,61 +388,60 @@ export default function Home() {
         </div>
       </section>
       {/* ===== TESTIMONIALS ===== */}
-<section className="testimonial-section py-5">
-  <div className="container">
-    {/* HEADER */}
-    <div className="text-center mb-5">
-      <h2 className="fw-bold">What Our Patients Say</h2>
-      <p className="text-muted">
-        Real experiences from our happy patients
-      </p>
-    </div>
+      <section className="testimonial-section py-5">
+        <div className="container">
+          {/* HEADER */}
+          <div className="text-center mb-5">
+            <h2 className="fw-bold">What Our Patients Say</h2>
+            <p className="text-muted">
+              Real experiences from our happy patients
+            </p>
+          </div>
 
-    {/* CAROUSEL */}
-    <div
-      id="testimonialCarousel"
-      className="carousel slide"
-      data-bs-ride="carousel"
-    >
-      <div className="carousel-inner">
-        {testimonialChunks.map((group, index) => (
+          {/* CAROUSEL */}
           <div
-            key={index}
-            className={`carousel-item ${index === 0 ? "active" : ""}`}
+            id="testimonialCarousel"
+            className="carousel slide"
+            data-bs-ride="carousel"
           >
-            <div className="row justify-content-center g-4">
-              {group.map((t, i) => (
-                <div key={i} className="col-md-4">
-                  <TestimonialCard {...t} />
+            <div className="carousel-inner">
+              {testimonialChunks.map((group, index) => (
+                <div
+                  key={index}
+                  className={`carousel-item ${index === 0 ? "active" : ""}`}
+                >
+                  <div className="row justify-content-center g-4">
+                    {group.map((t, i: number) => (
+                      <div key={i} className="col-md-4">
+                        <TestimonialCard {...t} />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
+
+            {/* CONTROLS */}
+            <button
+              className="carousel-control-prev testimonial-control"
+              type="button"
+              data-bs-target="#testimonialCarousel"
+              data-bs-slide="prev"
+            >
+              ‹
+            </button>
+
+            <button
+              className="carousel-control-next testimonial-control"
+              type="button"
+              data-bs-target="#testimonialCarousel"
+              data-bs-slide="next"
+            >
+              ›
+            </button>
           </div>
-        ))}
-      </div>
-
-      {/* CONTROLS */}
-      <button
-        className="carousel-control-prev testimonial-control"
-        type="button"
-        data-bs-target="#testimonialCarousel"
-        data-bs-slide="prev"
-      >
-        ‹
-      </button>
-
-      <button
-        className="carousel-control-next testimonial-control"
-        type="button"
-        data-bs-target="#testimonialCarousel"
-        data-bs-slide="next"
-      >
-        ›
-      </button>
-    </div>
-  </div>
-</section>
-
+        </div>
+      </section>
     </main>
   );
 }
