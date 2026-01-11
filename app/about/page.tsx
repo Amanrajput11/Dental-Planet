@@ -1,5 +1,8 @@
 "use client";
 
+import DoctorSection from "@/components/DoctorCard";
+import { doctors } from "@/data/doctors";
+
 export default function About() {
   return (
     <main>
@@ -9,7 +12,7 @@ export default function About() {
           <div className="row align-items-center gy-4">
             <div className="col-lg-7">
               <span className="mb-3 fs-2 text-light">
-                 About SmileCare 🦷
+                About SmileCare 🦷
               </span>
 
               <h1 className="about-title mt-2">
@@ -79,6 +82,15 @@ export default function About() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* ===== OUR DOCTORS (FULL SECTIONS) ===== */}
+      <section style={{ background: "#f8fafc" }}>
+        <DoctorSection doctor={doctors[0]} />
+      </section>
+
+      <section style={{ background: "#ffffff" }}>
+        <DoctorSection doctor={doctors[1]} reverse />
       </section>
 
       {/* ===== WHY CHOOSE US ===== */}

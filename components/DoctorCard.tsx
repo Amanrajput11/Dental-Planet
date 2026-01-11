@@ -1,42 +1,45 @@
 import Image from "next/image";
 
-export default function DoctorCard({ doctor }: any) {
+export default function DoctorSection({ doctor, reverse = false }: any) {
   return (
-    <div className="card border-0 shadow-sm rounded-4 overflow-hidden">
-      <div className="row g-0 align-items-center">
-        {/* CONTENT */}
-        <div className="col-md-8">
-          <div className="card-body py-4">
-            <h5 className="fw-bold mb-1">{doctor.name}</h5>
+    <section className="min-vh-100 d-flex align-items-center py-5">
+      <div className="container">
+        <div
+          className={`row align-items-center g-5 ${
+            reverse ? "flex-row-reverse" : ""
+          }`}
+        >
+          {/* IMAGE */}
+          <div className="col-lg-6">
+            <div className="position-relative ">
+              <div style={{ position: "relative", width: "100%", height: "520px", backgroundColor: "transparent" }}>
+                <Image
+                  src={doctor.image}
+                  alt={doctor.name}
+                  fill
+                  style={{ objectFit: "contain" }}
+                  
+                />
+              </div>
+            </div>
+          </div>
 
-            <p className="text-success fw-semibold mb-2">
-              {doctor.specialization}
-            </p>
+          {/* CONTENT */}
+          <div className="col-lg-6">
+            <h2 className="fw-bold display-6 mb-2">{doctor.name}</h2>
 
-            <p className="text-muted small mb-3">{doctor.description}</p>
+            <h5 className="text-success mb-3">{doctor.specialization}</h5>
 
-            {/* TAG */}
+            <p className="text-muted fs-5">{doctor.description}</p>
+
             {doctor.isChildSpecialist && (
-              <span className="badge bg-warning text-dark rounded-pill px-3 py-2">
-                Child Dental Specialist
+              <span className="badge bg-warning text-dark rounded-pill px-4 py-2 fs-6">
+                Pediatric / Child Dental Specialist
               </span>
             )}
           </div>
         </div>
-        {/* IMAGE */}
-        {/* IMAGE */}
-        <div className="col-md-4 p-3">
-          <div className="doctor-image-wrapper border rounded-4 shadow-sm bg-white">
-            <Image
-              src={doctor.image}
-              alt={doctor.name}
-              fill
-              className="rounded-4"
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-        </div>
       </div>
-    </div>
+    </section>
   );
 }

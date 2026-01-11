@@ -12,6 +12,12 @@ import { services } from "@/data/services";
 import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import { testimonials } from "@/data/testimonials";
+import DoctorSection from "@/components/DoctorCard";
+
+const testimonialChunks = [];
+for (let i = 0; i < testimonials.length; i += 3) {
+  testimonialChunks.push(testimonials.slice(i, i + 3));
+}
 
 export default function Home() {
   return (
@@ -254,9 +260,8 @@ export default function Home() {
       </section>
 
       {/* ===== DOCTORS ===== */}
-      <section className="section-soft-bg py-5">
+      {/* <section className="section-soft-bg py-5">
         <div className="container">
-          {/* SECTION HEADER */}
           <div className="text-center mb-5">
             <h2 className="fw-semibold">Meet Our Doctors</h2>
             <p className="text-muted mb-0">
@@ -264,7 +269,6 @@ export default function Home() {
             </p>
           </div>
 
-          {/* DOCTORS GRID */}
           <div className="row g-4 justify-content-center">
             {doctors.map((doctor) => (
               <div key={doctor.id} className="col-lg-6 col-md-10">
@@ -273,54 +277,57 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+{/* ===== DOCTORS (FULL SECTIONS) ===== */}
+<section style={{ background: "#f8fafc" }}>
+  <DoctorSection doctor={doctors[0]} />
+</section>
+
+<section style={{ background: "#ffffff" }}>
+  <DoctorSection doctor={doctors[1]} reverse />
+</section>
 
       {/* ===== SERVICES ===== */}
       <section className="py-5">
-        <div className="container">
-          {/* HEADER */}
-          <div className="text-center mb-5">
-            <h2 className="section-title">Our Services</h2>
-            <p className="section-subtitle">
-              Complete dental care for every stage of life
-            </p>
+  <div className="container">
+    {/* HEADER */}
+    <div className="text-center mb-5">
+      <h2 className="section-title">Our Services</h2>
+      <p className="section-subtitle">
+        Complete dental care for every stage of life
+      </p>
+    </div>
+
+    {/* SERVICES (ONE FROM EACH CATEGORY) */}
+    <div className="row g-4">
+      {["services", "treatment", "surgery"].map((category) => {
+        const service = services.find((s) => s.category === category);
+
+        if (!service) return null;
+
+        return (
+          <div key={service.slug} className="col-md-4">
+            <ServiceCard
+              title={service.title}
+              slug={service.slug}
+              description={service.description}
+            />
           </div>
+        );
+      })}
+    </div>
 
-          {["services", "treatment", "surgery"].map((category) => {
-            const filtered = services.filter((s) => s.category === category);
-
-            if (!filtered.length) return null;
-
-            return (
-              <div key={category} className="mb-5">
-                <h4 className="fw-semibold mb-4 text-capitalize">{category}</h4>
-
-                <div className="row g-4">
-                  {filtered.slice(0, 3).map((service) => (
-                    <div key={service.slug} className="col-md-4">
-                      <ServiceCard
-                        title={service.title}
-                        slug={service.slug}
-                        description={service.description}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-
-          {/* CTA */}
-          <div className="text-center mt-4">
-            <Link
-              href="/services"
-              className="btn btn-outline-primary btn-lg rounded-pill"
-            >
-              View All Services →
-            </Link>
-          </div>
-        </div>
-      </section>
+    {/* CTA */}
+    <div className="text-center mt-4">
+      <Link
+        href="/services"
+        className="btn btn-outline-primary btn-lg rounded-pill"
+      >
+        View All Services →
+      </Link>
+    </div>
+  </div>
+</section>
 
       {/* ===== BLOGS ===== */}
       {/* ===== BLOGS ===== */}
@@ -380,58 +387,61 @@ export default function Home() {
         </div>
       </section>
       {/* ===== TESTIMONIALS ===== */}
-      <section className="testimonial-section py-5">
-        <div className="container">
-          {/* HEADER */}
-          <div className="text-center mb-5">
-            <h2 className="fw-bold">What Our Patients Say</h2>
-            <p className="text-muted">
-              Real experiences from our happy patients
-            </p>
-          </div>
+<section className="testimonial-section py-5">
+  <div className="container">
+    {/* HEADER */}
+    <div className="text-center mb-5">
+      <h2 className="fw-bold">What Our Patients Say</h2>
+      <p className="text-muted">
+        Real experiences from our happy patients
+      </p>
+    </div>
 
-          {/* CAROUSEL */}
+    {/* CAROUSEL */}
+    <div
+      id="testimonialCarousel"
+      className="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div className="carousel-inner">
+        {testimonialChunks.map((group, index) => (
           <div
-            id="testimonialCarousel"
-            className="carousel slide"
-            data-bs-ride="carousel"
+            key={index}
+            className={`carousel-item ${index === 0 ? "active" : ""}`}
           >
-            <div className="carousel-inner">
-              {testimonials.map((t, index) => (
-                <div
-                  key={index}
-                  className={`carousel-item ${index === 0 ? "active" : ""}`}
-                >
-                  <div className="d-flex justify-content-center">
-                    <div className="testimonial-wrapper">
-                      <TestimonialCard {...t} />
-                    </div>
-                  </div>
+            <div className="row justify-content-center g-4">
+              {group.map((t, i) => (
+                <div key={i} className="col-md-4">
+                  <TestimonialCard {...t} />
                 </div>
               ))}
             </div>
-
-            {/* CONTROLS */}
-            <button
-              className="carousel-control-prev testimonial-control"
-              type="button"
-              data-bs-target="#testimonialCarousel"
-              data-bs-slide="prev"
-            >
-              ‹
-            </button>
-
-            <button
-              className="carousel-control-next testimonial-control"
-              type="button"
-              data-bs-target="#testimonialCarousel"
-              data-bs-slide="next"
-            >
-              ›
-            </button>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+
+      {/* CONTROLS */}
+      <button
+        className="carousel-control-prev testimonial-control"
+        type="button"
+        data-bs-target="#testimonialCarousel"
+        data-bs-slide="prev"
+      >
+        ‹
+      </button>
+
+      <button
+        className="carousel-control-next testimonial-control"
+        type="button"
+        data-bs-target="#testimonialCarousel"
+        data-bs-slide="next"
+      >
+        ›
+      </button>
+    </div>
+  </div>
+</section>
+
     </main>
   );
 }
