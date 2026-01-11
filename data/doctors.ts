@@ -1,18 +1,20 @@
 export const doctors = [
   {
     id: 1,
-    name: "Dr. Sandeep Sharma",
-    role: "BDS, MDS – Orthodontist",
-    image: "/doctors/dr1.jpg",
+    name: "Dr. Ankur Vatsal",
+    specialization: "Founder & Chief Dental Surgeon",
+    image: "/images/dr_ankur.png",
     description:
-      "Specialist in braces and smile correction with 10+ years of experience.",
+      "Experienced and highly qualified dental professional offering advanced dental care including root canal treatments, implants, crowns & bridges, and digital dentistry.",
+    isChildSpecialist: false,
   },
   {
     id: 2,
-    name: "Dr. Rahul Mehta",
-    role: "BDS – General Dentist",
-    image: "/doctors/dr2.jpg",
+    name: "Dr. Khushboo Barjatya Vatsal",
+    specialization: "Founder & Pediatric Dentist",
+    image: "/images/dr_khushboo.jpeg",
     description:
-      "Expert in painless dental treatments and preventive care.",
+      "Child dental specialist providing gentle and compassionate dental care for children, along with expertise in preventive dentistry and modern treatments.",
+    isChildSpecialist: true,
   },
 ];

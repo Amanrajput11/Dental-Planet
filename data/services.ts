@@ -1,44 +1,280 @@
 export const services = [
+  /* ================= SERVICES ================= */
+
   {
     title: "Teeth Cleaning",
     slug: "teeth-cleaning",
+    category: "services",
     description: "Professional dental cleaning for healthy teeth.",
     longDescription:
-      "Our teeth cleaning service removes plaque, tartar and stains to keep your smile fresh and healthy. Regular cleaning prevents gum disease and tooth decay.",
+      "Teeth cleaning is a preventive dental procedure designed to remove plaque, tartar, and surface stains from teeth. "
+      + "It helps maintain oral hygiene, prevents gum disease, cavities, and bad breath, and promotes long-term dental health.",
     features: [
       "Plaque & tartar removal",
       "Polishing & stain removal",
       "Bad breath treatment",
-      "Gum health checkup",
+      "Comprehensive gum health checkup",
     ],
     image: "/images/img1.jpg",
   },
+
   {
-    title: "Dental Implants",
-    slug: "dental-implants",
-    description: "Permanent solution for missing teeth.",
+    title: "Dental & Oral X-Ray",
+    slug: "dental-oral-xray",
+    category: "services",
+    description: "Accurate diagnosis using dental X-ray imaging.",
     longDescription:
-      "Dental implants are the most natural-looking and durable replacement for missing teeth.",
+      "Dental and oral X-rays allow dentists to detect hidden dental problems such as cavities, infections, impacted teeth, and bone loss. "
+      + "They provide detailed internal images for precise diagnosis and treatment planning.",
     features: [
-      "Titanium implant placement",
-      "Natural appearance",
-      "Long-term durability",
-      "Improves chewing and speech",
+      "Early cavity detection",
+      "Bone health assessment",
+      "Jaw and root evaluation",
+      "Safe low-radiation imaging",
     ],
-    image: "/images/img2.jpg",
+    image: "/images/dental-oral-xray.png",
   },
+
+  {
+    title: "Digital Dental X-Ray",
+    slug: "digital-dental-xray",
+    category: "services",
+    description: "Advanced digital imaging with minimal radiation.",
+    longDescription:
+      "Digital dental X-rays offer clearer images with significantly reduced radiation exposure. "
+      + "They enable faster diagnosis and environmentally friendly imaging without chemical processing.",
+    features: [
+      "Low radiation exposure",
+      "High-resolution images",
+      "Instant results",
+      "Environment-friendly process",
+    ],
+    image: "/images/digital-dental-xray.jpg",
+  },
+
+  {
+    title: "Gum Care",
+    slug: "gum-care",
+    category: "services",
+    description: "Treatment and maintenance of healthy gums.",
+    longDescription:
+      "Gum care focuses on preventing and treating gum-related issues such as gingivitis and periodontitis. "
+      + "Healthy gums are essential for strong teeth and overall oral health.",
+    features: [
+      "Gum infection treatment",
+      "Bleeding gum care",
+      "Deep cleaning",
+      "Periodontal assessment",
+    ],
+    image: "/images/gum-care.png",
+  },
+
+  {
+    title: "Laser Dentistry",
+    slug: "laser-dentistry",
+    category: "services",
+    description: "Modern dental treatments using laser technology.",
+    longDescription:
+      "Laser dentistry provides minimally invasive dental treatments with faster healing, reduced pain, and improved precision. "
+      + "It is commonly used for gum treatments, cavity removal, and cosmetic procedures.",
+    features: [
+      "Minimally invasive",
+      "Faster healing",
+      "Reduced discomfort",
+      "High precision treatment",
+    ],
+    image: "/images/laser-dentistry.png",
+  },
+
+  /* ================= TREATMENTS ================= */
+
   {
     title: "Braces & Aligners",
     slug: "braces-aligners",
-    description: "Straighten your teeth with modern solutions.",
+    category: "treatment",
+    description: "Straighten your teeth with modern orthodontic solutions.",
     longDescription:
-      "We provide metal braces and clear aligners to straighten teeth comfortably and effectively.",
+      "Braces and aligners correct misaligned teeth and bite problems. "
+      + "Clear aligners offer a discreet alternative while braces provide reliable results for complex cases.",
     features: [
       "Metal & ceramic braces",
       "Clear invisible aligners",
-      "Consultation & smile design",
-      "Regular follow-ups",
+      "Smile correction",
+      "Regular orthodontic monitoring",
     ],
     image: "/images/img3.jpg",
+  },
+
+  {
+    title: "Root Canal Treatment (RCT)",
+    slug: "root-canal-treatment",
+    category: "treatment",
+    description: "Save infected teeth with root canal treatment.",
+    longDescription:
+      "Root canal treatment removes infected pulp tissue from inside the tooth, relieves pain, and restores function. "
+      + "It helps preserve natural teeth and prevent further infection.",
+    features: [
+      "Pain relief",
+      "Infection removal",
+      "Tooth preservation",
+      "Long-term protection",
+    ],
+    image: "/images/root-canal-treatment.png",
+  },
+
+  {
+    title: "Bleeding Gums Treatment",
+    slug: "bleeding-gums-treatment",
+    category: "treatment",
+    description: "Effective treatment for bleeding and inflamed gums.",
+    longDescription:
+      "Bleeding gums are often a sign of gum disease. "
+      + "This treatment focuses on eliminating infection, strengthening gums, and preventing further damage.",
+    features: [
+      "Gum infection control",
+      "Reduced inflammation",
+      "Improved oral hygiene",
+      "Preventive care guidance",
+    ],
+    image: "/images/bleeding-gums-treatment.jpg",
+  },
+
+  {
+    title: "Sedation Dentistry",
+    slug: "sedation-dentistry",
+    category: "treatment",
+    description: "Stress-free dental treatments using sedation.",
+    longDescription:
+      "Sedation dentistry helps anxious patients undergo dental procedures comfortably. "
+      + "It ensures relaxation and pain-free treatment during dental care.",
+    features: [
+      "Reduced anxiety",
+      "Comfortable procedures",
+      "Safe sedation methods",
+      "Ideal for nervous patients",
+    ],
+    image: "/images/sedation-dentistry.jpg",
+  },
+
+  /* ================= SURGERY ================= */
+
+  {
+    title: "Dental Implants",
+    slug: "dental-implants",
+    category: "surgery",
+    description: "Permanent solution for missing teeth.",
+    longDescription:
+      "Dental implants replace missing teeth using a titanium post placed in the jawbone. "
+      + "They restore appearance, chewing ability, and jawbone strength.",
+    features: [
+      "Titanium implant placement",
+      "Natural look & feel",
+      "Long-term durability",
+      "Improved speech & chewing",
+    ],
+    image: "/images/dental-implants.jpg",
+  },
+
+  {
+    title: "Wisdom Tooth Extraction",
+    slug: "wisdom-tooth-extraction",
+    category: "surgery",
+    description: "Safe removal of impacted wisdom teeth.",
+    longDescription:
+      "Wisdom tooth extraction prevents pain, infection, and overcrowding caused by impacted or partially erupted wisdom teeth.",
+    features: [
+      "Pain relief",
+      "Prevention of infection",
+      "Safe surgical procedure",
+      "Post-surgery care",
+    ],
+    image: "/images/wisdom-tooth-extraction.jpg",
+  },
+
+  {
+    title: "Periodontal Surgery",
+    slug: "periodontal-surgery",
+    category: "surgery",
+    description: "Advanced surgical treatment for gum disease.",
+    longDescription:
+      "Periodontal surgery treats severe gum disease by removing infected tissue and restoring gum health.",
+    features: [
+      "Deep gum cleaning",
+      "Infection control",
+      "Bone preservation",
+      "Improved gum stability",
+    ],
+    image: "/images/periodontal-surgery.png",
+  },
+    /* ================= FACILITIES ================= */
+
+  {
+    title: "Tooth X-Ray Facility",
+    slug: "tooth-xray-facility",
+    category: "facilities",
+    description: "In-house dental X-ray facility for fast diagnosis.",
+    longDescription:
+      "Our clinic provides an in-house tooth X-ray facility that enables immediate imaging and accurate diagnosis. "
+      + "This helps dentists detect dental issues quickly and plan effective treatment without external referrals.",
+    features: [
+      "Instant dental imaging",
+      "Accurate diagnosis",
+      "Reduced waiting time",
+      "Safe & modern equipment",
+    ],
+    image: "/images/tooth-xray-facility.png",
+  },
+
+  /* ================= PROCEDURES ================= */
+
+  {
+    title: "Dental Bleaching",
+    slug: "dental-bleaching",
+    category: "procedures",
+    description: "Professional teeth whitening procedure.",
+    longDescription:
+      "Dental bleaching is a cosmetic procedure designed to remove deep stains and discoloration from teeth. "
+      + "It enhances the brightness of your smile and boosts confidence with safe and effective whitening techniques.",
+    features: [
+      "Removes deep stains",
+      "Brightens tooth color",
+      "Safe cosmetic procedure",
+      "Quick visible results",
+    ],
+    image: "/images/dental-bleaching.png",
+  },
+
+  {
+    title: "Fixed Prosthodontics",
+    slug: "fixed-prosthodontics",
+    category: "procedures",
+    description: "Permanent restoration of missing or damaged teeth.",
+    longDescription:
+      "Fixed prosthodontics involves crowns, bridges, and restorations that permanently replace missing or damaged teeth. "
+      + "These treatments restore chewing efficiency, speech, and overall dental aesthetics.",
+    features: [
+      "Crowns & bridges",
+      "Permanent tooth replacement",
+      "Improved chewing ability",
+      "Natural appearance",
+    ],
+    image: "/images/fixed-prosthodontics.jpg",
+  },
+
+  {
+    title: "Artificial Teeth Implant",
+    slug: "artificial-teeth-implant",
+    category: "procedures",
+    description: "Artificial tooth replacement using implants.",
+    longDescription:
+      "Artificial teeth implants replace missing teeth using implant-supported prosthetics. "
+      + "They provide a stable, natural-looking solution that restores full dental functionality.",
+    features: [
+      "Implant-supported teeth",
+      "Strong & stable fit",
+      "Natural look",
+      "Long-lasting solution",
+    ],
+    image: "/images/artificial-teeth-implant.jpg",
   },
 ];

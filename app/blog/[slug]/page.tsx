@@ -1,54 +1,82 @@
+import Link from "next/link";
 import { blogs } from "@/data/blogs";
 
-export default async function ServiceDetail(
-  { params }: { params: Promise<{ slug: string }> }
-) {
+export default async function BlogDetail({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
-
-  const blog = blogs.find(s => s.slug === slug);
+  const blog = blogs.find((b) => b.slug === slug);
 
   if (!blog) {
     return (
       <div className="container py-5 text-center">
-        <h2>Service not found</h2>
+        <h2>Blog not found</h2>
       </div>
     );
   }
 
+  // Other blogs (exclude current one)
+  const otherBlogs = blogs.filter((b) => b.slug !== slug).slice(0, 5);
+
   return (
-    <div className="container py-5" style={{ maxWidth: "900px" }}>
-      <div
-        className="service-detail bg-white rounded-4 shadow-sm p-4 p-md-5"
-        style={{ lineHeight: 1.8 }}
-      >
-        {/* TITLE */}
-        <h1 className="mb-3">{blog.title}</h1>
+    <div className="container py-5">
+      <div className="row g-5">
+        {/* ================= LEFT : BLOG CONTENT ================= */}
+        <div className="col-lg-8">
+          <article className="bg-white rounded-4 shadow-sm p-4 p-md-5">
+            <h1 className="mb-3">{blog.title}</h1>
 
-        {/* META */}
-        <p className="text-muted mb-4">
-          {blog.date} • {blog.author}
-        </p>
+            <p className="text-muted mb-4">
+              {blog.date} • {blog.author}
+            </p>
 
-        {/* EXCERPT */}
-        <p
-          className="fs-5 fw-medium mb-4"
-          style={{ color: "#555" }}
-        >
-          {blog.excerpt}
-        </p>
+            <div className="d-flex justify-content-center mb-4">
+              <img
+                src={blog.image}
+                alt={blog.title}
+                style={{
+                  maxWidth: "100%",
+                  width: "520px",
+                  height: "auto",
+                  borderRadius: "16px",
+                  boxShadow: "0 12px 30px rgba(0,0,0,0.12)",
+                }}
+              />
+            </div>
 
-        <hr className="my-4" />
+            <div style={{ whiteSpace: "pre-line", lineHeight: 1.8 }}>
+              {blog.content}
+            </div>
+          </article>
+        </div>
 
-        {/* CONTENT */}
-        <article
-          style={{
-            fontSize: "16px",
-            color: "#333",
-            whiteSpace: "pre-line",
-          }}
-        >
-          {blog.content}
-        </article>
+        {/* ================= RIGHT : SIDEBAR ================= */}
+        <div className="col-lg-4">
+          <div className="sticky-top" style={{ top: "100px" }}>
+            <div className="bg-white rounded-4 shadow-sm p-4">
+              <h5 className="fw-semibold mb-3">Recent Posts</h5>
+
+              <ul className="list-unstyled d-flex flex-column gap-3">
+                {otherBlogs.map((b) => (
+                  <li key={b.slug}>
+                    <Link
+                      href={`/blog/${b.slug}`}
+                      className="text-decoration-none fw-medium"
+                      style={{ color: "#2563eb" }}
+                    >
+                      {b.title}
+                    </Link>
+
+                    <div className="small text-muted">{b.date}</div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+        {/* ====================================================== */}
       </div>
     </div>
   );

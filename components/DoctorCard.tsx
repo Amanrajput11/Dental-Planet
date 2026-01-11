@@ -1,41 +1,41 @@
-"use client";
-
 import Image from "next/image";
 
 export default function DoctorCard({ doctor }: any) {
   return (
-    <div className="card h-100 border-0 shadow-sm overflow-hidden d-flex justify-content-center align-content-center border border-dark">
-      {/* IMAGE WRAPPER */}
-      <div className="bg-light d-flex justify-content-center align-items-end">
-        <Image
-          src={doctor.image}
-          alt={doctor.name}
-          width={400}
-          height={400}
-          className="img-fluid"
-          style={{ objectFit: "contain" }}
-        />
-      </div>
+    <div className="card border-0 shadow-sm rounded-4 overflow-hidden">
+      <div className="row g-0 align-items-center">
+        {/* CONTENT */}
+        <div className="col-md-8">
+          <div className="card-body py-4">
+            <h5 className="fw-bold mb-1">{doctor.name}</h5>
 
-      {/* BODY */}
-      <div className="card-body text-center px-4">
-        {/* BADGES */}
-        <div className="mb-2 d-flex justify-content-center gap-2 flex-wrap">
-          <span className="badge bg-primary">Certified</span>
-          <span className="badge bg-success">10+ Years</span>
-          <span className="badge bg-info text-dark">Dental Expert</span>
+            <p className="text-success fw-semibold mb-2">
+              {doctor.specialization}
+            </p>
+
+            <p className="text-muted small mb-3">{doctor.description}</p>
+
+            {/* TAG */}
+            {doctor.isChildSpecialist && (
+              <span className="badge bg-warning text-dark rounded-pill px-3 py-2">
+                Child Dental Specialist
+              </span>
+            )}
+          </div>
         </div>
-
-        {/* NAME */}
-        <h5 className="fw-semibold mb-1">{doctor.name}</h5>
-
-        {/* ROLE */}
-        <p className="fw-bold badge bg-warning">{doctor.role}</p>
-
-        {/* DESCRIPTION */}
-        <p className="text-dark mb-0">
-          {doctor.description}
-        </p>
+        {/* IMAGE */}
+        {/* IMAGE */}
+        <div className="col-md-4 p-3">
+          <div className="doctor-image-wrapper border rounded-4 shadow-sm bg-white">
+            <Image
+              src={doctor.image}
+              alt={doctor.name}
+              fill
+              className="rounded-4"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

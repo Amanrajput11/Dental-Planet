@@ -1,12 +1,14 @@
-
 import { services } from "@/data/services";
+import Link from "next/link";
 
-export default async function ServiceDetail(
-  { params }: { params: Promise<{ slug: string }> }
-) {
+export default async function ServiceDetail({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
 
-  const service = services.find(s => s.slug === slug);
+  const service = services.find((s) => s.slug === slug);
 
   if (!service) {
     return (
@@ -18,8 +20,15 @@ export default async function ServiceDetail(
 
   return (
     <div className="container py-5" style={{ maxWidth: "900px" }}>
+      <div className="mb-4">
+        <Link
+          href="/services"
+          className="btn badge-soft btn-outline-info btn-sm"
+        >
+          ← Back to Services
+        </Link>
+      </div>
       <div className="service-detail">
-
         {/* TITLE */}
         <h1>{service.title}</h1>
 
@@ -27,7 +36,19 @@ export default async function ServiceDetail(
         <p>{service.longDescription}</p>
 
         {/* IMAGE */}
-       <div style={{ marginBottom: "25px" }}> <img src={service.image} alt={service.title} style={{ width: "100%", maxHeight: "300px", objectFit: "cover", borderRadius: "10px", }} /> </div>
+        <div style={{ marginBottom: "25px" }}>
+          {" "}
+          <img
+            src={service.image}
+            alt={service.title}
+            style={{
+              width: "100%",
+              maxHeight: "300px",
+              objectFit: "cover",
+              borderRadius: "10px",
+            }}
+          />{" "}
+        </div>
 
         {/* FEATURES */}
         <h3>What’s Included</h3>
@@ -37,7 +58,6 @@ export default async function ServiceDetail(
             <li key={index}>{feature}</li>
           ))}
         </ul>
-
       </div>
     </div>
   );

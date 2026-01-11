@@ -1,82 +1,79 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm border-bottom sticky-top">
-      <div className="container">
-        {/* Brand */}
-        <Link href="/" className="navbar-brand fw-bold text-primary">
-          <span style={{fontSize:18, marginRight:8}}>🦷</span>SmileCare
+    <nav className="navbar navbar-expand-lg navbar-light navbar-glass sticky-top p-0">
+      <div className="container p-0">
+        {/* BRAND */}
+        <Link href="/" className="navbar-brand d-flex align-items-center gap-2">
+          <Image
+            src="/images/logo3.png"
+            alt="Dental Planet Logo"
+            width={180}
+            height={80}
+            priority
+            className="navbar-logo"
+          />
         </Link>
-
-        {/* Mobile toggle */}
+        {/* TOGGLER */}
         <button
-          className="navbar-toggler"
+          className="navbar-toggler border-0"
           type="button"
           aria-expanded={open}
           aria-label="Toggle navigation"
           onClick={() => setOpen(!open)}
         >
-          <span style={{ fontSize: "1.6rem" }}>
-                {open ? "✖" : "☰"}
-          </span>
-
+          <span className="navbar-toggler-icon-custom">{open ? "✖" : "☰"}</span>
         </button>
 
-        {/* DESKTOP NAV (always visible) */}
+        {/* DESKTOP NAV */}
         <div className="d-none d-lg-flex ms-auto">
-          <ul className="navbar-nav align-items-center gap-3">
+          <ul className="navbar-nav align-items-center gap-4">
             <li className="nav-item">
-              <Link href="/about" className="nav-link">About</Link>
+              <Link href="/about" className="nav-link nav-link-modern">
+                About
+              </Link>
             </li>
             <li className="nav-item">
-              <Link href="/services" className="nav-link">Services</Link>
+              <Link href="/services" className="nav-link nav-link-modern">
+                Services
+              </Link>
             </li>
             <li className="nav-item">
-              <Link href="/blog" className="nav-link">Blog</Link>
+              <Link href="/gallery" className="nav-link nav-link-modern">
+                Gallery
+              </Link>
             </li>
+
             <li className="nav-item">
-              <Link href="/contact" className="btn btn-primary px-3">
-                Book Appointment
+              <Link href="/blog" className="nav-link nav-link-modern">
+                Blog
               </Link>
             </li>
           </ul>
         </div>
       </div>
-
       {/* MOBILE NAV */}
       {open && (
-        <div className="d-lg-none bg-white border-top">
-          <ul className="navbar-nav px-3 py-3 gap-2">
-            <li className="nav-item">
-              <Link href="/about" className="nav-link" onClick={() => setOpen(false)}>
-                About
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/services" className="nav-link" onClick={() => setOpen(false)}>
-                Services
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/blog" className="nav-link" onClick={() => setOpen(false)}>
-                Blog
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                href="/contact"
-                className="btn btn-primary w-100 mt-2"
-                onClick={() => setOpen(false)}
-              >
-                Book Appointment
-              </Link>
-            </li>
+        <div className="d-lg-none navbar-mobile border border-black w-100 text-center">
+          <ul className="navbar-nav px-4 py-4 gap-3">
+            {["about", "services", "gallery", "blog"].map((item) => (
+              <li className="nav-item" key={item}>
+                <Link
+                  href={`/${item}`}
+                  className="nav-link nav-link-modern"
+                  onClick={() => setOpen(false)}
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       )}
