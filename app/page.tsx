@@ -24,74 +24,21 @@ export default function Home() {
   return (
     <main>
       {/* ===== HERO ===== */}
-      <section
-        className="hero-section position-relative d-flex align-items-center text-center p-4"
-        style={{
-          backgroundImage: "url('/images/bg2.jpeg')",
-        }}
-      >
-        {/* OVERLAY */}
-        <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-25"></div>
-
-        <div className="container position-relative">
-          <div className="row justify-content-center">
-            <div className="col-lg-9 col-xl-8">
-              {/* BADGE */}
-              <span className="badge bg-info bg-opacity-75 text-light rounded-pill px-4 py-2 mb-4">
-                Dental Planet • The World of Dental Perfection
-              </span>
-
-              {/* HEADING */}
-              <h1 className="fw-bold text-white display-4 lh-sm opacity-30">
-                World-Class Dental Care <br />
-                <span className="text-info">Rooted in Trust & Innovation</span>
-              </h1>
-
-              {/* DESCRIPTION */}
-              <p
-                className="fs-5 text-white-50 mt-4 mx-auto"
-                style={{ maxWidth: "720px" }}
-              >
-                A premier dental care center in Tilak Nagar, Indore — delivering
-                modern, compassionate, and comprehensive oral healthcare for
-                every smile.
-              </p>
-
-              {/* CTA */}
-              <div className="d-flex justify-content-center flex-wrap gap-3 mt-4">
-                <Link
-                  href="/services"
-                  className="btn btn-light btn-lg rounded-pill px-4 fw-semibold shadow"
-                >
-                  Explore Treatments
-                </Link>
-
-                <Link
-                  href="/about"
-                  className="btn btn-outline-info btn-lg rounded-pill px-4 fw-semibold"
-                >
-                  Meet Our Doctors
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+      <section className="w-100">
+        <img
+          src="/images/bg2.jpeg"
+          alt="Dental Planet"
+          className="img-fluid w-100"
+          style={{
+            display: "block",
+          }}
+        />
       </section>
 
       {/* ===== ABOUT ===== */}
-      <section
-        className="position-relative py-5"
-        style={{
-          backgroundImage: "url('/images/about-bg.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <section className="position-relative py-5">
         {/* OVERLAY */}
-        <div
-          className="position-absolute top-0 start-0 w-100 h-100"
-          style={{ background: "rgba(255,255,255,0.88)" }}
-        />
+        <div className="position-absolute top-0 start-0 w-100 h-100" />
 
         <div className="container position-relative">
           <div className="row align-items-center g-5">
@@ -153,13 +100,13 @@ export default function Home() {
 
             {/* RIGHT IMAGE */}
             <div className="col-lg-6 text-center">
-              <div className="rounded-2 overflow-hidden shadow-lg">
+              <div className="rounded-4 overflow-hidden">
                 <Image
                   src="/images/gallary1.jpeg" // 👉 use clinic / doctors image
                   alt="Dental Planet Clinic"
                   width={600}
                   height={450}
-                  className="img-fluid p-2"
+                  className="img-fluid"
                   style={{ objectFit: "cover" }}
                 />
               </div>
@@ -280,11 +227,21 @@ export default function Home() {
         </div>
       </section> */}
       {/* ===== DOCTORS (FULL SECTIONS) ===== */}
-      <section style={{ background: "#f8fafc" }}>
+      {/* ================= DOCTORS SECTION ================= */}
+      <section className="py-5" style={{ background: "#f8fafc" }}>
+        <div className="container mb-5">
+          <div className="text-center">
+            <h2 className="fw-bold mb-2">Meet Our Doctors</h2>
+            <p className="text-muted mb-0">
+              Experienced specialists dedicated to your dental health
+            </p>
+          </div>
+        </div>
+
         <DoctorSection doctor={doctors[0]} />
       </section>
 
-      <section style={{ background: "#ffffff" }}>
+      <section className="py-5" style={{ background: "#ffffff" }}>
         <DoctorSection doctor={doctors[1]} reverse />
       </section>
 

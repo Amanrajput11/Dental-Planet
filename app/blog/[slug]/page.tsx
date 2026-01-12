@@ -53,29 +53,35 @@ export default async function BlogDetail({
         </div>
 
         {/* ================= RIGHT : SIDEBAR ================= */}
-        <div className="col-lg-4">
-          <div className="sticky-top" style={{ top: "100px" }}>
-            <div className="bg-white rounded-4 shadow-sm p-4">
-              <h5 className="fw-semibold mb-3">Recent Posts</h5>
+        {/* ================= RECENT POSTS ================= */}
+        <div className="col-12 col-lg-4 order-2">
+          <div className="position-relative" style={{ height: "100%" }}>
+            <div
+              className="sticky-lg-top"
+              style={{ top: "120px" }} // MUST be >= navbar height
+            >
+              <aside className="bg-white rounded-4 shadow-sm p-4">
+                <h5 className="fw-semibold mb-3">Recent Posts</h5>
 
-              <ul className="list-unstyled d-flex flex-column gap-3">
-                {otherBlogs.map((b) => (
-                  <li key={b.slug}>
-                    <Link
-                      href={`/blog/${b.slug}`}
-                      className="text-decoration-none fw-medium"
-                      style={{ color: "#2563eb" }}
-                    >
-                      {b.title}
-                    </Link>
-
-                    <div className="small text-muted">{b.date}</div>
-                  </li>
-                ))}
-              </ul>
+                <ul className="list-unstyled d-flex flex-column gap-3 mb-0">
+                  {otherBlogs.map((b) => (
+                    <li key={b.slug}>
+                      <Link
+                        href={`/blog/${b.slug}`}
+                        className="text-decoration-none fw-medium"
+                        style={{ color: "#2563eb" }}
+                      >
+                        {b.title}
+                      </Link>
+                      <div className="small text-muted">{b.date}</div>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
             </div>
           </div>
         </div>
+
         {/* ====================================================== */}
       </div>
     </div>
