@@ -1,38 +1,45 @@
 export const testimonials = [
   {
-    name: "Rohit Sharma",
-    treatment: "Teeth Cleaning",
-    message:
-      "The clinic is extremely hygienic and the doctors are very friendly. Best dental experience I’ve had.",
-  },
-  {
-    name: "Priya Verma",
+    name: "Sanika Roy",
     treatment: "Root Canal Treatment",
     message:
-      "I was very scared initially, but the treatment was completely painless. Highly recommended!",
+      "This clinic completely changed my perception of dental care. The staff was extremely friendly, and the entire root canal procedure was surprisingly painless. I felt comfortable and well taken care of throughout my visits.",
+    image: "/images/profile.png",
   },
   {
-    name: "Amit Jain",
+    name: "Rahul Mehta",
     treatment: "Dental Implants",
     message:
-      "Excellent care and advanced technology. The implant feels completely natural and comfortable.",
+      "From consultation to the final implant, everything was handled very professionally. The doctors explained each step clearly, and the modern facilities made me feel confident about the treatment.",
+    image: "/images/profile.png",
   },
   {
-    name: "Neha Gupta",
-    treatment: "Child Dentistry",
+    name: "Ananya Sharma",
+    treatment: "Teeth Whitening",
     message:
-      "My child felt very comfortable here. The doctors are patient, caring, and very gentle.",
+      "I am really happy with the teeth whitening results. The dentist was patient and informative, and the treatment gave me a brighter smile in just one session without any discomfort.",
+    image: "/images/profile.png",
   },
   {
-    name: "Suresh Patel",
-    treatment: "Braces & Alignment",
+    name: "Vikram Patel",
+    treatment: "Braces Consultation",
     message:
-      "Very professional approach and clear explanation of the treatment plan. I’m very satisfied with the results.",
+      "The consultation was detailed and reassuring. All my doubts were addressed clearly, and the dentist helped me understand the best options for my treatment in a very friendly manner.",
+    image: "/images/profile.png",
   },
   {
-    name: "Kavita Malhotra",
-    treatment: "Cosmetic Dentistry",
+    name: "Neha Kulkarni",
+    treatment: "Routine Dental Checkup",
     message:
-      "Amazing transformation! My smile looks so much better now. Thank you to the entire Dental Planet team.",
+      "The clinic is very clean and well-organized. The staff was polite, and the checkup was thorough yet quick. I truly appreciate the professional and caring approach.",
+    image: "/images/profile.png",
+  },
+  {
+    name: "Amit Verma",
+    treatment: "Tooth Extraction",
+    message:
+      "I was quite nervous before the extraction, but the dentist made me feel calm and comfortable. The procedure was smooth, painless, and the aftercare instructions were very helpful.",
+    image: "/images/profile.png",
   },
 ];
+

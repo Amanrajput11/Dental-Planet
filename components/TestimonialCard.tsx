@@ -1,20 +1,32 @@
+import Image from "next/image";
+
 export default function TestimonialCard({
   name,
   treatment,
   message,
+  image,
 }: {
   name: string;
   treatment: string;
   message: string;
+  image: string;
 }) {
   return (
-    <div className="card h-100 border-0 shadow-sm rounded-4 p-4">
-      <p className="text-muted fst-italic mb-2">“{message}”</p>
+    <div className="testimonial-card text-center mx-auto">
+      <div className="quote-icon">“</div>
 
-      <hr className="mt-3" />
+      <Image
+        src={image}
+        alt={name}
+        width={80}
+        height={80}
+        className="rounded-circle mb-3"
+      />
 
-      <h6 className="fw-bold mb-0">{name}</h6>
-      <small className="text-primary">{treatment}</small>
+      <h5 className="fw-bold mb-0">{name}</h5>
+      <small className="text-muted">{treatment}</small>
+
+      <p className="text-muted fst-italic mt-3 mb-0">{message}</p>
     </div>
   );
 }

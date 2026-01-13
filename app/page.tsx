@@ -362,18 +362,12 @@ export default function Home() {
             data-bs-ride="carousel"
           >
             <div className="carousel-inner">
-              {testimonialChunks.map((group, index) => (
+              {testimonials.map((t, index) => (
                 <div
                   key={index}
                   className={`carousel-item ${index === 0 ? "active" : ""}`}
                 >
-                  <div className="row justify-content-center g-4">
-                    {group.map((t, i: number) => (
-                      <div key={i} className="col-md-4">
-                        <TestimonialCard {...t} />
-                      </div>
-                    ))}
-                  </div>
+                  <TestimonialCard {...t} />
                 </div>
               ))}
             </div>
