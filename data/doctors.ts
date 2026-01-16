@@ -5,7 +5,7 @@ export const doctors = [
     specialization: "Founder & Chief Dental Surgeon",
     image: "/images/ankur.jpeg",
     description:
-      "Experienced and highly qualified dental professional offering advanced dental care including root canal treatments, implants, crowns & bridges, and digital dentistry.",
+      "With over 15 years of clinical experience, Dr. Ankur Vatsal specializes in cosmetic and restorative dentistry. His expertise includes dental implants, root canal treatments, crowns & bridges, smile designing, braces, and advanced digital dentistry with 3D scanning. Known for clinical precision and ethical care, he focuses on long-term oral health and patient comfort.",
     isChildSpecialist: false,
   },
   {
@@ -14,7 +14,7 @@ export const doctors = [
     specialization: "Founder & Pediatric Dentist",
     image: "/images/khusboo.jpeg",
     description:
-      "Child dental specialist providing gentle and compassionate dental care for children, along with expertise in preventive dentistry and modern treatments.",
+      "Dr. Khushboo Barjatya Vatsal is a compassionate pediatric dentist dedicated to the oral health of infants, children, adolescents, and children with special needs. Her expertise includes preventive dentistry, habit correction, early orthodontic care, sedation dentistry, and gentle behavior management, creating a child-friendly and comforting dental experience.",
     isChildSpecialist: true,
   },
 ];

@@ -21,28 +21,51 @@ const CATEGORY_TITLES: Record<string, string> = {
 
 export default function Services() {
   return (
-    <div className="container py-5">
-      <h1 className="fw-bold mb-5">Our Services</h1>
+    <>
+      {/* PAGE HEADER */}
+      <section className="py-5 bg-light">
+        <div className="container text-center">
+          <span className="badge bg-primary-subtle text-primary mb-3 px-3 py-2 rounded-pill">
+            What We Offer
+          </span>
 
-      {CATEGORY_ORDER.map((category) => {
-        const items = services.filter((s) => s.category === category);
+          <h1 className="fw-bold mb-3">Our Dental Services</h1>
 
-        if (items.length === 0) return null;
+          <p className="text-muted mb-0 mx-auto" style={{ maxWidth: 640 }}>
+            Comprehensive dental care using modern technology, ethical
+            practices, and patient-first treatment.
+          </p>
+        </div>
+      </section>
 
-        return (
-          <section key={category} className="mb-5">
-            <h2 className="fw-semibold mb-4">{CATEGORY_TITLES[category]}</h2>
+      {/* SERVICES LIST */}
+      <div className="container py-5">
+        {CATEGORY_ORDER.map((category) => {
+          const items = services.filter((s) => s.category === category);
+          if (items.length === 0) return null;
 
-            <div className="row g-4">
-              {items.map((s) => (
-                <div className="col-md-4" key={s.slug}>
-                  <ServiceCard {...s} />
-                </div>
-              ))}
-            </div>
-          </section>
-        );
-      })}
-    </div>
+          return (
+            <section key={category} className="mb-5">
+              {/* CATEGORY HEADER */}
+              <div className="mb-4">
+                <h2 className="fw-semibold mb-1">
+                  {CATEGORY_TITLES[category]}
+                </h2>
+                <div className="bg-primary" style={{ width: 60, height: 3 }} />
+              </div>
+
+              {/* GRID */}
+              <div className="row g-4">
+                {items.map((s) => (
+                  <div className="col-sm-6 col-md-4 col-lg-3" key={s.slug}>
+                    <ServiceCard {...s} />
+                  </div>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
+    </>
   );
 }

@@ -6,53 +6,65 @@ import { blogs } from "@/data/blogs";
 
 export default function BlogPage() {
   return (
-    <main className="py-5">
-      <div className="container">
-        {/* HEADER */}
-        <div className="text-center mb-5">
-          <h1 className="fw-bold">Dental Blogs</h1>
-          <p className="text-muted">
-            Tips, guides & insights for a healthy smile
+    <main>
+      {/* PAGE HEADER */}
+      <section className="py-5 bg-light">
+        <div className="container text-center">
+          <span className="badge bg-primary-subtle text-primary mb-3 px-3 py-2 rounded-pill">
+            Knowledge Hub
+          </span>
+
+          <h1 className="fw-bold mb-2">Dental Blogs</h1>
+
+          <p className="text-muted mb-0 mx-auto" style={{ maxWidth: 620 }}>
+            Expert tips, guides & insights to help you maintain a healthy,
+            confident smile.
           </p>
         </div>
+      </section>
 
-        {/* BLOG GRID */}
-        <div className="row g-4">
-          {blogs.map((blog) => (
-            <div key={blog.slug} className="col-lg-4 col-md-6">
-              <div className="card h-100 border-0 shadow-sm blog-card">
-                {/* IMAGE */}
-                <div className="ratio ratio-16x9">
-                  <Image
-                    src={blog.image}
-                    alt={blog.title}
-                    fill
-                    className="object-fit-cover"
-                  />
-                </div>
+      {/* BLOG GRID */}
+      <section className="py-5">
+        <div className="container">
+          <div className="row g-4">
+            {blogs.map((blog) => (
+              <div key={blog.slug} className="col-sm-6 col-lg-4">
+                <div className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                  {/* IMAGE */}
+                  <div className="ratio ratio-16x9">
+                    <Image
+                      src={blog.image}
+                      alt={blog.title}
+                      fill
+                      className="object-fit-cover"
+                    />
+                  </div>
 
-                {/* CONTENT */}
-                <div className="card-body d-flex flex-column">
-                  <h5 className="fw-semibold">{blog.title}</h5>
+                  {/* CONTENT */}
+                  <div className="card-body d-flex flex-column">
+                    <h5 className="fw-semibold mb-2">{blog.title}</h5>
 
-                  <small className="text-muted mb-2">
-                    {blog.date} • {blog.author}
-                  </small>
+                    <small className="text-muted mb-2">
+                      {blog.date} • {blog.author}
+                    </small>
 
-                  <p className="text-muted small flex-grow-1">{blog.excerpt}</p>
+                    <p className="text-muted small flex-grow-1 lh-lg">
+                      {blog.excerpt}
+                    </p>
 
-                  <Link
-                    href={`/blog/${blog.slug}`}
-                    className="btn btn-primary mt-auto"
-                  >
-                    Read Blog →
-                  </Link>
+                    <Link
+                      href={`/blog/${blog.slug}`}
+                      className="btn btn-outline-primary btn-sm px-4 py-2 rounded-pill fw-semibold align-self-start"
+                    >
+                      Read Blog →
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }

@@ -8,37 +8,43 @@ export default function About() {
   return (
     <main>
       {/* ===== HERO ===== */}
-      <section className="py-5">
+      <section className="py-5 bg-light">
         <div className="container">
           <div className="row align-items-center gy-4">
             {/* TEXT */}
             <div className="col-lg-6">
-              <span className="fs-5 text-info fw-bold fs-2">
+              <span className="badge bg-info text-white mb-3 px-3 py-2">
                 About Dental Planet
               </span>
 
-              <h1 className="fw-bold display-6 mt-2">
+              <h1 className="fw-bold display-6 mt-2 text-dark">
                 Caring for Smiles <br className="d-none d-md-block" />
                 With Compassion & Expertise
               </h1>
 
               <p className="text-muted fs-5 mt-3">
-                At Dental Planet, we combine modern technology with gentle,
-                patient-first care to help you achieve a healthy, confident
-                smile.
+                We combine modern dental technology with gentle, patient-first
+                care to help you smile with confidence.
               </p>
+              <div className="mt-4">
+                <a
+                  href="/services"
+                  className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
+                >
+                  Explore Our Services →
+                </a>
+              </div>
             </div>
 
-            {/* IMAGE (VISIBLE ON MOBILE & DESKTOP) */}
+            {/* IMAGE */}
             <div className="col-lg-6 text-center">
-              <div className="overflow-hidden rounded-3">
+              <div className="overflow-hidden rounded-4 shadow-sm">
                 <Image
                   src="/images/bg1.jpeg"
                   alt="Dental Planet Team"
                   width={800}
                   height={500}
                   className="img-fluid"
-                  style={{ objectFit: "cover" }}
                   priority
                 />
               </div>
@@ -48,49 +54,45 @@ export default function About() {
       </section>
 
       {/* ===== STORY ===== */}
-      <section className="py-5 bg-light">
+      <section className="py-5 bg-white">
         <div className="container">
-          <div className="row justify-content-center">
+          <div className="row justify-content-center mb-4">
             <div className="col-lg-9 text-center">
-              <h2 className="fw-bold mb-3">Our Story</h2>
+              <h2 className="fw-bold text-primary mb-3">Our Story</h2>
               <p className="text-muted fs-6">
                 Founded with a mission to make dental care comfortable and
-                accessible, SmileCare has been serving patients with honesty,
-                precision, and empathy.
+                accessible, Dental Planet focuses on honesty, precision, and
+                empathy.
               </p>
             </div>
           </div>
 
-          <div className="row mt-4 g-4">
-            <div className="col-md-4">
-              <div className="p-4 border rounded-3 h-100">
-                <h5>🎯 Our Mission</h5>
-                <p className="text-muted mb-0">
-                  To provide high-quality dental care in a calm, friendly
-                  environment using the latest techniques.
-                </p>
+          <div className="row g-4">
+            {[
+              {
+                icon: "🎯",
+                title: "Our Mission",
+                text: "High-quality dental care in a calm, friendly environment.",
+              },
+              {
+                icon: "👁",
+                title: "Our Vision",
+                text: "To be a trusted clinic known for ethical and long-term care.",
+              },
+              {
+                icon: "🤝",
+                title: "Our Values",
+                text: "Compassion, transparency, safety, and excellence.",
+              },
+            ].map((item, i) => (
+              <div className="col-md-4" key={i}>
+                <div className="p-4 bg-light border rounded-4 h-100 text-center">
+                  <span className="fs-1">{item.icon}</span>
+                  <h5 className="mt-3 fw-semibold">{item.title}</h5>
+                  <p className="text-muted mb-0">{item.text}</p>
+                </div>
               </div>
-            </div>
-
-            <div className="col-md-4">
-              <div className="p-4 border rounded-3 h-100">
-                <h5>👁 Our Vision</h5>
-                <p className="text-muted mb-0">
-                  To be a trusted dental clinic known for ethical treatment and
-                  long-term patient relationships.
-                </p>
-              </div>
-            </div>
-
-            <div className="col-md-4">
-              <div className="p-4 border rounded-3 h-100">
-                <h5>🤝 Our Values</h5>
-                <p className="text-muted mb-0">
-                  Compassion, transparency, safety, and excellence in every
-                  smile we care for.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -108,52 +110,43 @@ export default function About() {
       <section className="py-5 bg-light">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="fw-bold">Why Choose SmileCare?</h2>
+            <h2 className="fw-bold text-primary">Why Choose Dental Planet?</h2>
             <p className="text-muted mt-2">
-              What makes us different from other dental clinics.
+              Trusted care, advanced technology, and patient comfort.
             </p>
           </div>
 
           <div className="row g-4">
-            <div className="col-md-6 col-lg-3">
-              <div className="p-4 border rounded-3 text-center h-100">
-                <span className="fs-2">🧑‍⚕️</span>
-                <h6 className="mt-3">Experienced Dentists</h6>
-                <p className="text-muted small">
-                  Highly trained professionals with years of experience.
-                </p>
+            {[
+              {
+                icon: "🧑‍⚕️",
+                title: "Experienced Dentists",
+                text: "Highly trained dental professionals.",
+              },
+              {
+                icon: "🦷",
+                title: "Modern Equipment",
+                text: "Advanced tools for precision treatments.",
+              },
+              {
+                icon: "😊",
+                title: "Pain-Free Care",
+                text: "Comfort-focused dental procedures.",
+              },
+              {
+                icon: "⏱",
+                title: "Flexible Appointments",
+                text: "Convenient scheduling options.",
+              },
+            ].map((item, i) => (
+              <div className="col-md-6 col-lg-3" key={i}>
+                <div className="p-4 bg-white border border-primary-subtle rounded-4 text-center h-100 shadow-sm">
+                  <span className="fs-2">{item.icon}</span>
+                  <h6 className="mt-3 fw-semibold">{item.title}</h6>
+                  <p className="text-muted small">{item.text}</p>
+                </div>
               </div>
-            </div>
-
-            <div className="col-md-6 col-lg-3">
-              <div className="p-4 border rounded-3 text-center h-100">
-                <span className="fs-2">🦷</span>
-                <h6 className="mt-3">Modern Equipment</h6>
-                <p className="text-muted small">
-                  Advanced tools for safe and precise treatments.
-                </p>
-              </div>
-            </div>
-
-            <div className="col-md-6 col-lg-3">
-              <div className="p-4 border rounded-3 text-center h-100">
-                <span className="fs-2">😊</span>
-                <h6 className="mt-3">Pain-Free Care</h6>
-                <p className="text-muted small">
-                  Gentle procedures focused on patient comfort.
-                </p>
-              </div>
-            </div>
-
-            <div className="col-md-6 col-lg-3">
-              <div className="p-4 border rounded-3 text-center h-100">
-                <span className="fs-2">⏱</span>
-                <h6 className="mt-3">Flexible Appointments</h6>
-                <p className="text-muted small">
-                  Convenient scheduling that fits your lifestyle.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

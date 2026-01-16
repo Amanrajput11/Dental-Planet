@@ -36,16 +36,14 @@ export default function Home() {
       </section>
 
       {/* ===== ABOUT ===== */}
-      <section className="position-relative py-5">
-        {/* OVERLAY */}
-        <div className="position-absolute top-0 start-0 w-100 h-100" />
-
-        <div className="container position-relative">
+      {/* ===== ABOUT ===== */}
+      <section className="py-5 bg-light">
+        <div className="container">
           <div className="row align-items-center g-5">
             {/* LEFT CONTENT */}
             <div className="col-lg-6">
               {/* LOGO */}
-              <div className="mb-4 text-center">
+              <div className="mb-4 text-center text-lg-start">
                 <Image
                   src="/images/logo2.png"
                   alt="Dental Planet Logo"
@@ -55,11 +53,11 @@ export default function Home() {
                 />
               </div>
 
-              <h2 className="fw-bold mb-3 text-center">
-                Welcome to <span className="text-success">Dental Planet</span>
+              <h2 className="fw-bold mb-3 text-center text-lg-start">
+                Welcome to <span className="text-primary">Dental Planet</span>
               </h2>
 
-              <p className="fs-6 text-muted mb-3">
+              <p className="fs-6 text-muted mb-3 lh-lg">
                 <strong>Dental Planet – The World of Dental Perfection</strong>{" "}
                 is a premier dental care center founded by
                 <strong> Dr. Ankur Vatsal</strong> and
@@ -67,7 +65,7 @@ export default function Home() {
                 Nagar, Indore.
               </p>
 
-              <p className="text-muted mb-4">
+              <p className="text-muted mb-4 lh-lg">
                 We provide comprehensive, modern dental care — from routine
                 checkups and cleanings to advanced treatments like root canals,
                 crowns, implants, and digital dentistry — all under one roof.
@@ -75,26 +73,18 @@ export default function Home() {
 
               {/* HIGHLIGHTS */}
               <div className="row g-3">
-                <div className="col-sm-6">
-                  <div className="p-3 bg-white rounded shadow-sm">
-                    ✔ Experienced & compassionate dentists
+                {[
+                  "Experienced & compassionate dentists",
+                  "Advanced digital dentistry",
+                  "Hygienic & patient-friendly clinic",
+                  "Transparent & affordable pricing",
+                ].map((text, i) => (
+                  <div className="col-sm-6" key={i}>
+                    <div className="p-3 bg-white rounded-4 shadow-sm border-start border-4 border-primary">
+                      ✔ {text}
+                    </div>
                   </div>
-                </div>
-                <div className="col-sm-6">
-                  <div className="p-3 bg-white rounded shadow-sm">
-                    ✔ Advanced digital dentistry
-                  </div>
-                </div>
-                <div className="col-sm-6">
-                  <div className="p-3 bg-white rounded shadow-sm">
-                    ✔ Hygienic & patient-friendly clinic
-                  </div>
-                </div>
-                <div className="col-sm-6">
-                  <div className="p-3 bg-white rounded shadow-sm">
-                    ✔ Transparent & affordable pricing
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
@@ -102,7 +92,7 @@ export default function Home() {
             <div className="col-lg-6 text-center">
               <div className="rounded-4 overflow-hidden">
                 <Image
-                  src="/images/gallary1.jpeg" // 👉 use clinic / doctors image
+                  src="/images/gallary1.jpeg"
                   alt="Dental Planet Clinic"
                   width={600}
                   height={450}
@@ -207,25 +197,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== DOCTORS ===== */}
-      {/* <section className="section-soft-bg py-5">
-        <div className="container">
-          <div className="text-center mb-5">
-            <h2 className="fw-semibold">Meet Our Doctors</h2>
-            <p className="text-muted mb-0">
-              Experienced professionals dedicated to your smile
-            </p>
-          </div>
-
-          <div className="row g-4 justify-content-center">
-            {doctors.map((doctor) => (
-              <div key={doctor.id} className="col-lg-6 col-md-10">
-                <DoctorCard doctor={doctor} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
       {/* ===== DOCTORS (FULL SECTIONS) ===== */}
       {/* ================= DOCTORS SECTION ================= */}
       <section className="py-5" style={{ background: "#f8fafc" }}>
@@ -239,9 +210,6 @@ export default function Home() {
         </div>
 
         <DoctorSection doctor={doctors[0]} />
-      </section>
-
-      <section className="py-5" style={{ background: "#ffffff" }}>
         <DoctorSection doctor={doctors[1]} reverse />
       </section>
 
@@ -276,12 +244,13 @@ export default function Home() {
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-4">
+
+          <div className="mt-4 text-center">
             <Link
               href="/services"
-              className="btn btn-outline-primary btn-lg rounded-pill"
+              className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
             >
-              View All Services →
+              Explore Our Services →
             </Link>
           </div>
         </div>
@@ -323,9 +292,9 @@ export default function Home() {
 
                     <Link
                       href={`/blog/${blog.slug}`}
-                      className="btn btn-primary w-100 mt-2"
+                      className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
                     >
-                      Read more →
+                      Read Blog →
                     </Link>
                   </div>
                 </div>
@@ -334,10 +303,11 @@ export default function Home() {
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-4">
+
+          <div className="mt-4 text-center">
             <Link
               href="/blog"
-              className="btn btn-outline-primary btn-lg rounded-pill"
+              className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
             >
               View All Blogs →
             </Link>

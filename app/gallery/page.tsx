@@ -23,14 +23,16 @@ export default function GalleryPage() {
           {/* GALLERY GRID */}
           <div className="row g-4">
             {/* FEATURED IMAGE */}
-            <div className="col-lg-6">
+
+            <div className="col-md-6">
               <div
-                className="card border-0 shadow-sm rounded-4 overflow-hidden h-100 cursor-pointer"
+                className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
                 onClick={() => setPreview("/images/gallary1.jpeg")}
               >
-                <div className="ratio ratio-1x1">
+                <div className="ratio ratio-1x1 h-100">
                   <img
                     src="/images/gallary1.jpeg"
+                    alt="Dental Clinic Exterior"
                     className="w-100 h-100"
                     style={{ objectFit: "cover" }}
                   />
