@@ -13,7 +13,7 @@ export default function GalleryPage() {
         <div className="container">
           {/* HEADER */}
           <div className="text-center mb-5">
-            <h1 className="fw-bold">Clinic Gallery</h1>
+            <h1 className="fw-bold text-info">Clinic Gallery</h1>
             <p className="text-muted">
               Explore our modern infrastructure, equipment & patient-friendly
               spaces

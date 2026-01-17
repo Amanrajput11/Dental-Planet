@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function DoctorSection({ doctor, reverse = false }: any) {
   return (
@@ -21,7 +22,6 @@ export default function DoctorSection({ doctor, reverse = false }: any) {
                     src={doctor.image}
                     alt={doctor.name}
                     fill
-                    className="img-fluid"
                     style={{ objectFit: "contain" }}
                   />
                 </div>
@@ -45,10 +45,25 @@ export default function DoctorSection({ doctor, reverse = false }: any) {
             </p>
 
             {doctor.isChildSpecialist && (
-              <span className="badge bg-warning text-dark rounded-pill px-4 py-2 fs-6 shadow-sm">
-                Pediatric / Child Dental Specialist
-              </span>
+              <div className="mt-4">
+                <div className="d-flex flex-column flex-sm-row align-items-center align-items-sm-start gap-3 p-3 rounded-4 bg-light border">
+                  {/* SPECIALIST BADGE */}
+                  <span className="badge bg-warning text-dark rounded-pill px-4 py-2 fs-6 shadow-sm">
+                    Pediatric / Child Dental Specialist
+                  </span>
+
+                  {/* CTA BUTTON */}
+                  <Link
+                    href="/doctors/dr-khushboo"
+                    className="btn btn-outline-info rounded-pill px-4 py-2 fw-semibold"
+                  >
+                    Know more about Dr. Khushboo →
+                  </Link>
+                </div>
+              </div>
             )}
+
+            {/* ✅ HARD LINK – ALWAYS WORKS */}
           </div>
         </div>
       </div>

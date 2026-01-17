@@ -29,7 +29,9 @@ export default function Navbar() {
           aria-label="Toggle navigation"
           onClick={() => setOpen(!open)}
         >
-          <span className="navbar-toggler-icon-custom">{open ? "✖" : "☰"}</span>
+          <span className="navbar-toggler-icon-custom">
+            {open ? "✖" : "☰"}
+          </span>
         </button>
 
         {/* DESKTOP NAV */}

@@ -24,18 +24,19 @@ export default function Home() {
   return (
     <main>
       {/* ===== HERO ===== */}
-      <section className="w-100">
+      <section className="w-100 overflow-hidden">
         <img
           src="/images/bg2.jpeg"
           alt="Dental Planet"
-          className="img-fluid w-100"
+          className="w-100 h-100"
           style={{
+            objectFit: "cover",
+            objectPosition: "center bottom", // 👈 crops from TOP
             display: "block",
           }}
         />
       </section>
 
-      {/* ===== ABOUT ===== */}
       {/* ===== ABOUT ===== */}
       <section className="py-5 bg-light">
         <div className="container">
