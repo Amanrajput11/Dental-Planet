@@ -123,7 +123,7 @@ export default function Footer() {
         </div>
 
         {/* WHATSAPP */}
-        <div className="text-center mt-5">
+        {/* <div className="text-center mt-5">
           <h6 className="text-uppercase mb-2 fw-semibold">
             WhatsApp Appointment
           </h6>
@@ -155,7 +155,7 @@ export default function Footer() {
               </div>
             </div>
           </a>
-        </div>
+        </div> */}
       </div>
 
       {/* BOTTOM BAR */}

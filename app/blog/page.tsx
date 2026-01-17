@@ -43,18 +43,15 @@ export default function BlogPage() {
                   {/* CONTENT */}
                   <div className="card-body d-flex flex-column">
                     <h5 className="fw-semibold mb-2">{blog.title}</h5>
-
                     <small className="text-muted mb-2">
                       {blog.date} • {blog.author}
                     </small>
-
                     <p className="text-muted small flex-grow-1 lh-lg">
                       {blog.excerpt}
                     </p>
-
                     <Link
                       href={`/blog/${blog.slug}`}
-                      className="btn btn-outline-primary btn-sm px-4 py-2 rounded-pill fw-semibold align-self-start"
+                      className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold mt-auto"
                     >
                       Read Blog →
                     </Link>

@@ -237,6 +237,7 @@ export default function Home() {
                     title={service.title}
                     slug={service.slug}
                     description={service.description}
+                    image={service.image}
                   />
                 </div>
               );

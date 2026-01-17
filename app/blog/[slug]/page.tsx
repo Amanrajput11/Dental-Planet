@@ -22,6 +22,14 @@ export default async function BlogDetail({
 
   return (
     <div className="container py-5">
+      <div className="mb-4">
+        <Link
+          href={`/blog`}
+          className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold mt-auto"
+        >
+          ← Back to Blogs
+        </Link>
+      </div>
       <div className="row g-5">
         {/* ================= LEFT : BLOG CONTENT ================= */}
         <div className="col-lg-8">
@@ -63,17 +71,37 @@ export default async function BlogDetail({
               <aside className="bg-white rounded-4 shadow-sm p-4">
                 <h5 className="fw-semibold mb-3">Recent Posts</h5>
 
-                <ul className="list-unstyled d-flex flex-column gap-3 mb-0">
+                <ul className="list-unstyled d-flex flex-column gap-4 mb-0">
                   {otherBlogs.map((b) => (
                     <li key={b.slug}>
                       <Link
                         href={`/blog/${b.slug}`}
-                        className="text-decoration-none fw-medium"
-                        style={{ color: "#2563eb" }}
+                        className="d-flex gap-3 text-decoration-none align-items-start"
                       >
-                        {b.title}
+                        {/* THUMBNAIL */}
+                        <img
+                          src={b.image}
+                          alt={b.title}
+                          style={{
+                            width: "64px",
+                            height: "64px",
+                            objectFit: "cover",
+                            borderRadius: "12px",
+                            flexShrink: 0,
+                          }}
+                        />
+
+                        {/* TEXT */}
+                        <div>
+                          <div
+                            className="fw-medium"
+                            style={{ color: "#2563eb", lineHeight: 1.4 }}
+                          >
+                            {b.title}
+                          </div>
+                          <div className="small text-muted">{b.date}</div>
+                        </div>
                       </Link>
-                      <div className="small text-muted">{b.date}</div>
                     </li>
                   ))}
                 </ul>

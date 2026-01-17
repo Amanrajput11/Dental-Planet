@@ -18,46 +18,97 @@ export default async function ServiceDetail({
     );
   }
 
+  const relatedServices = services
+    .filter((s) => s.slug !== slug && s.category === service.category)
+    .slice(0, 4);
+
   return (
-    <div className="container py-5" style={{ maxWidth: "900px" }}>
+    <div className="container py-5">
       <div className="mb-4">
         <Link
           href="/services"
-          className="btn badge-soft btn-outline-info btn-sm"
+          className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
         >
           ← Back to Services
         </Link>
       </div>
-      <div className="service-detail">
-        {/* TITLE */}
-        <h1>{service.title}</h1>
 
-        {/* DESCRIPTION */}
-        <p>{service.longDescription}</p>
+      <div className="row g-5">
+        {/* ================= LEFT : SERVICE CONTENT ================= */}
+        <div className="col-lg-8">
+          <article className="bg-white rounded-4 shadow-sm p-4 p-md-5">
+            <h1 className="mb-3">{service.title}</h1>
 
-        {/* IMAGE */}
-        <div style={{ marginBottom: "25px" }}>
-          {" "}
-          <img
-            src={service.image}
-            alt={service.title}
-            style={{
-              width: "100%",
-              maxHeight: "300px",
-              objectFit: "cover",
-              borderRadius: "10px",
-            }}
-          />{" "}
+            <p className="text-muted mb-4">{service.longDescription}</p>
+
+            {/* IMAGE */}
+            <img
+              src={service.image}
+              alt={service.title}
+              style={{
+                width: "100%",
+                maxHeight: "320px",
+                objectFit: "cover",
+                borderRadius: "16px",
+                marginBottom: "30px",
+              }}
+            />
+
+            {/* FEATURES */}
+            <h3 className="mb-3">What’s Included</h3>
+            <ul className="ps-3">
+              {service.features.map((feature, index) => (
+                <li key={index} className="mb-2">
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </article>
         </div>
 
-        {/* FEATURES */}
-        <h3>What’s Included</h3>
+        {/* ================= RIGHT : RELATED SERVICES ================= */}
+        <div className="col-lg-4">
+          <div className="sticky-lg-top" style={{ top: "120px" }}>
+            <aside className="bg-white rounded-4 shadow-sm p-4">
+              <h5 className="fw-semibold mb-4">Related Services</h5>
 
-        <ul>
-          {service.features.map((feature, index) => (
-            <li key={index}>{feature}</li>
-          ))}
-        </ul>
+              <ul className="list-unstyled d-flex flex-column gap-4 mb-0">
+                {relatedServices.map((s) => (
+                  <li key={s.slug}>
+                    <Link
+                      href={`/services/${s.slug}`}
+                      className="d-flex gap-3 text-decoration-none align-items-start"
+                    >
+                      {/* THUMBNAIL */}
+                      <img
+                        src={s.image}
+                        alt={s.title}
+                        style={{
+                          width: "64px",
+                          height: "64px",
+                          objectFit: "cover",
+                          borderRadius: "12px",
+                          flexShrink: 0,
+                        }}
+                      />
+
+                      {/* TEXT */}
+                      <div>
+                        <div
+                          className="fw-medium"
+                          style={{ color: "#2563eb", lineHeight: 1.4 }}
+                        >
+                          {s.title}
+                        </div>
+                        <div className="small text-muted">View details →</div>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          </div>
+        </div>
       </div>
     </div>
   );
