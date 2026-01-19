@@ -163,8 +163,13 @@ export default function Footer() {
         className="text-center py-3"
         style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}
       >
-        <small className="fw-semibold opacity-75">
+        <small className="fw-semibold opacity-75 d-block">
           © {new Date().getFullYear()} Dental Planet — All Rights Reserved
+        </small>
+
+        <small className="opacity-50">
+          Designed & Developed by{" "}
+          <span className="fw-semibold">Kiwi Connect Digital</span>
         </small>
       </div>
     </footer>

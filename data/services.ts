@@ -14,6 +14,21 @@ export const services = [
     ],
     image: "/images/img1.jpg",
   },
+{
+  title: "Kids Dental Treatment",
+  slug: "kids-dental-treatment",
+  description: "Comprehensive and gentle dental care for children.",
+  longDescription:
+    "Kids dental treatment focuses on maintaining and improving oral health in infants, children, and adolescents. "
+    + "It includes preventive care, early diagnosis, and child-friendly treatments designed to ensure healthy teeth development and positive dental experiences.",
+  features: [
+    "Child-friendly dental check-ups",
+    "Cavity prevention & fillings",
+    "Fluoride treatment & sealants",
+    "Early orthodontic assessment",
+  ],
+  image: "/images/kids-dental-care.png",
+},
 
   {
     title: "Dental & Oral X-Ray",
