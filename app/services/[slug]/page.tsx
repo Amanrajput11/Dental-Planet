@@ -18,9 +18,8 @@ export default async function ServiceDetail({
     );
   }
 
-  const relatedServices = services
-    .filter((s) => s.slug !== slug && s.category === service.category)
-    .slice(0, 4);
+  // 🔥 UPDATED RELATED SERVICES LOGIC
+  const relatedServices = services.filter((s) => s.slug !== slug).slice(0, 4);
 
   return (
     <div className="container py-5">
@@ -34,14 +33,13 @@ export default async function ServiceDetail({
       </div>
 
       <div className="row g-5">
-        {/* ================= LEFT : SERVICE CONTENT ================= */}
+        {/* LEFT CONTENT */}
         <div className="col-lg-8">
           <article className="bg-white rounded-4 shadow-sm p-4 p-md-5">
             <h1 className="mb-3">{service.title}</h1>
 
             <p className="text-muted mb-4">{service.longDescription}</p>
 
-            {/* IMAGE */}
             <img
               src={service.image}
               alt={service.title}
@@ -54,7 +52,6 @@ export default async function ServiceDetail({
               }}
             />
 
-            {/* FEATURES */}
             <h3 className="mb-3">What’s Included</h3>
             <ul className="ps-3">
               {service.features.map((feature, index) => (
@@ -66,7 +63,7 @@ export default async function ServiceDetail({
           </article>
         </div>
 
-        {/* ================= RIGHT : RELATED SERVICES ================= */}
+        {/* RIGHT SIDEBAR */}
         <div className="col-lg-4">
           <div className="sticky-lg-top" style={{ top: "120px" }}>
             <aside className="bg-white rounded-4 shadow-sm p-4">
@@ -79,7 +76,6 @@ export default async function ServiceDetail({
                       href={`/services/${s.slug}`}
                       className="d-flex gap-3 text-decoration-none align-items-start"
                     >
-                      {/* THUMBNAIL */}
                       <img
                         src={s.image}
                         alt={s.title}
@@ -88,16 +84,11 @@ export default async function ServiceDetail({
                           height: "64px",
                           objectFit: "cover",
                           borderRadius: "12px",
-                          flexShrink: 0,
                         }}
                       />
 
-                      {/* TEXT */}
                       <div>
-                        <div
-                          className="fw-medium"
-                          style={{ color: "#2563eb", lineHeight: 1.4 }}
-                        >
+                        <div className="fw-medium" style={{ color: "#2563eb" }}>
                           {s.title}
                         </div>
                         <div className="small text-muted">View details →</div>

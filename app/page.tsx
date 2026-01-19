@@ -10,15 +10,9 @@ import { doctors } from "@/data/doctors";
 import { blogs } from "@/data/blogs";
 import { services } from "@/data/services";
 import ServiceCard from "@/components/ServiceCard";
-import TestimonialCard from "@/components/TestimonialCard";
-import { testimonials } from "@/data/testimonials";
+import WhyChooseUsCard from "@/components/WhyChooseUsCard";
+import { whyChooseUs } from "@/data/whyChooseUs";
 import DoctorSection from "@/components/DoctorCard";
-
-const testimonialChunks: (typeof testimonials)[] = [];
-
-for (let i = 0; i < testimonials.length; i += 3) {
-  testimonialChunks.push(testimonials.slice(i, i + 3));
-}
 
 export default function Home() {
   return (
@@ -43,17 +37,6 @@ export default function Home() {
           <div className="row align-items-center g-5">
             {/* LEFT CONTENT */}
             <div className="col-lg-6">
-              {/* LOGO */}
-              <div className="mb-4 text-center text-lg-start">
-                <Image
-                  src="/images/logo2.png"
-                  alt="Dental Planet Logo"
-                  width={200}
-                  height={100}
-                  priority
-                />
-              </div>
-
               <h2 className="fw-bold mb-3 text-center text-lg-start">
                 Welcome to <span className="text-primary">Dental Planet</span>
               </h2>
@@ -106,6 +89,140 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== DOCTORS (FULL SECTIONS) ===== */}
+      {/* ================= DOCTORS SECTION ================= */}
+      <section className="py-5" style={{ background: "#f8fafc" }}>
+        <div className="container mb-5">
+          <div className="text-center">
+            <h2 className="fw-bold mb-2">Meet Our Doctors</h2>
+            <p className="text-muted mb-0">
+              Experienced specialists dedicated to your dental health
+            </p>
+          </div>
+        </div>
+
+        <DoctorSection doctor={doctors[0]} />
+        <DoctorSection doctor={doctors[1]} reverse />
+      </section>
+
+      {/* ===== SERVICES ===== */}
+      <section className="py-5">
+        <div className="container">
+          {/* HEADER */}
+          <div className="text-center mb-5">
+            <h2 className="section-title">Our Services</h2>
+            <p className="section-subtitle">
+              Complete dental care for every stage of life
+            </p>
+          </div>
+
+          {/* SERVICES (FEATURED / PREVIEW) */}
+          <div className="row g-4">
+            {services.slice(0, 3).map((service) => (
+              <div key={service.slug} className="col-md-4">
+                <ServiceCard
+                  title={service.title}
+                  slug={service.slug}
+                  description={service.description}
+                  image={service.image}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="mt-4 text-center">
+            <Link
+              href="/services"
+              className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
+            >
+              Explore Our Services →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== BLOGS ===== */}
+      {/* ===== BLOGS ===== */}
+      <section className="section-soft-bg py-5">
+        <div className="container">
+          {/* HEADER */}
+          <div className="text-center mb-5">
+            <h2 className="section-title">Latest Blogs</h2>
+            <p className="section-subtitle">
+              Dental tips, guides & oral health insights
+            </p>
+          </div>
+
+          <div className="row g-4">
+            {blogs.slice(0, 3).map((blog) => (
+              <div key={blog.slug} className="col-md-4">
+                <div className="card h-100 blog-card border-0 shadow-sm rounded-4 overflow-hidden">
+                  {/* IMAGE */}
+                  <div className="ratio ratio-16x9">
+                    <img
+                      src={blog.image}
+                      alt={blog.title}
+                      className="w-100 h-100"
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
+
+                  {/* CONTENT */}
+                  <div className="card-body d-flex flex-column">
+                    <h5 className="fw-semibold">{blog.title}</h5>
+
+                    <p className="text-muted small flex-grow-1">
+                      {blog.excerpt}
+                    </p>
+
+                    <Link
+                      href={`/blog/${blog.slug}`}
+                      className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
+                    >
+                      Read Blog →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+
+          <div className="mt-4 text-center">
+            <Link
+              href="/blog"
+              className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
+            >
+              View All Blogs →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== WHY CHOOSE US ===== */}
+      <section className="py-5 bg-light">
+        <div className="container">
+          {/* HEADER */}
+          <div className="text-center mb-5">
+            <h2 className="fw-bold">Why Choose Us</h2>
+            <p className="text-muted">
+              Trusted dental care backed by experience, technology, and
+              compassion
+            </p>
+          </div>
+
+          {/* GRID */}
+          <div className="row g-4 justify-content-center">
+            {whyChooseUs.map((item, index) => (
+              <div key={index} className="col-sm-6 col-lg-4">
+                <WhyChooseUsCard {...item} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* ===== GALLERY ===== */}
       <section className="py-5 bg-light">
         <div className="container">
@@ -194,174 +311,6 @@ export default function Home() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== DOCTORS (FULL SECTIONS) ===== */}
-      {/* ================= DOCTORS SECTION ================= */}
-      <section className="py-5" style={{ background: "#f8fafc" }}>
-        <div className="container mb-5">
-          <div className="text-center">
-            <h2 className="fw-bold mb-2">Meet Our Doctors</h2>
-            <p className="text-muted mb-0">
-              Experienced specialists dedicated to your dental health
-            </p>
-          </div>
-        </div>
-
-        <DoctorSection doctor={doctors[0]} />
-        <DoctorSection doctor={doctors[1]} reverse />
-      </section>
-
-      {/* ===== SERVICES ===== */}
-      <section className="py-5">
-        <div className="container">
-          {/* HEADER */}
-          <div className="text-center mb-5">
-            <h2 className="section-title">Our Services</h2>
-            <p className="section-subtitle">
-              Complete dental care for every stage of life
-            </p>
-          </div>
-
-          {/* SERVICES (ONE FROM EACH CATEGORY) */}
-          <div className="row g-4">
-            {["services", "treatment", "surgery"].map((category) => {
-              const service = services.find((s) => s.category === category);
-
-              if (!service) return null;
-
-              return (
-                <div key={service.slug} className="col-md-4">
-                  <ServiceCard
-                    title={service.title}
-                    slug={service.slug}
-                    description={service.description}
-                    image={service.image}
-                  />
-                </div>
-              );
-            })}
-          </div>
-
-          {/* CTA */}
-
-          <div className="mt-4 text-center">
-            <Link
-              href="/services"
-              className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
-            >
-              Explore Our Services →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== BLOGS ===== */}
-      {/* ===== BLOGS ===== */}
-      <section className="section-soft-bg py-5">
-        <div className="container">
-          {/* HEADER */}
-          <div className="text-center mb-5">
-            <h2 className="section-title">Latest Blogs</h2>
-            <p className="section-subtitle">
-              Dental tips, guides & oral health insights
-            </p>
-          </div>
-
-          <div className="row g-4">
-            {blogs.slice(0, 3).map((blog) => (
-              <div key={blog.slug} className="col-md-4">
-                <div className="card h-100 blog-card border-0 shadow-sm rounded-4 overflow-hidden">
-                  {/* IMAGE */}
-                  <div className="ratio ratio-16x9">
-                    <img
-                      src={blog.image}
-                      alt={blog.title}
-                      className="w-100 h-100"
-                      style={{ objectFit: "cover" }}
-                    />
-                  </div>
-
-                  {/* CONTENT */}
-                  <div className="card-body d-flex flex-column">
-                    <h5 className="fw-semibold">{blog.title}</h5>
-
-                    <p className="text-muted small flex-grow-1">
-                      {blog.excerpt}
-                    </p>
-
-                    <Link
-                      href={`/blog/${blog.slug}`}
-                      className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
-                    >
-                      Read Blog →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA */}
-
-          <div className="mt-4 text-center">
-            <Link
-              href="/blog"
-              className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
-            >
-              View All Blogs →
-            </Link>
-          </div>
-        </div>
-      </section>
-      {/* ===== TESTIMONIALS ===== */}
-      <section className="testimonial-section py-5">
-        <div className="container">
-          {/* HEADER */}
-          <div className="text-center mb-5">
-            <h2 className="fw-bold">What Our Patients Say</h2>
-            <p className="text-muted">
-              Real experiences from our happy patients
-            </p>
-          </div>
-
-          {/* CAROUSEL */}
-          <div
-            id="testimonialCarousel"
-            className="carousel slide"
-            data-bs-ride="carousel"
-          >
-            <div className="carousel-inner">
-              {testimonials.map((t, index) => (
-                <div
-                  key={index}
-                  className={`carousel-item ${index === 0 ? "active" : ""}`}
-                >
-                  <TestimonialCard {...t} />
-                </div>
-              ))}
-            </div>
-
-            {/* CONTROLS */}
-            <button
-              className="carousel-control-prev testimonial-control"
-              type="button"
-              data-bs-target="#testimonialCarousel"
-              data-bs-slide="prev"
-            >
-              ‹
-            </button>
-
-            <button
-              className="carousel-control-next testimonial-control"
-              type="button"
-              data-bs-target="#testimonialCarousel"
-              data-bs-slide="next"
-            >
-              ›
-            </button>
           </div>
         </div>
       </section>

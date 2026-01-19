@@ -1,10 +1,7 @@
 export const services = [
-  /* ================= SERVICES ================= */
-
   {
     title: "Teeth Cleaning",
     slug: "teeth-cleaning",
-    category: "services",
     description: "Professional dental cleaning for healthy teeth.",
     longDescription:
       "Teeth cleaning is a preventive dental procedure designed to remove plaque, tartar, and surface stains from teeth. "
@@ -21,7 +18,6 @@ export const services = [
   {
     title: "Dental & Oral X-Ray",
     slug: "dental-oral-xray",
-    category: "services",
     description: "Accurate diagnosis using dental X-ray imaging.",
     longDescription:
       "Dental and oral X-rays allow dentists to detect hidden dental problems such as cavities, infections, impacted teeth, and bone loss. "
@@ -36,26 +32,8 @@ export const services = [
   },
 
   {
-    title: "Digital Dental X-Ray",
-    slug: "digital-dental-xray",
-    category: "services",
-    description: "Advanced digital imaging with minimal radiation.",
-    longDescription:
-      "Digital dental X-rays offer clearer images with significantly reduced radiation exposure. "
-      + "They enable faster diagnosis and environmentally friendly imaging without chemical processing.",
-    features: [
-      "Low radiation exposure",
-      "High-resolution images",
-      "Instant results",
-      "Environment-friendly process",
-    ],
-    image: "/images/digital-dental-xray.jpg",
-  },
-
-  {
     title: "Gum Care",
     slug: "gum-care",
-    category: "services",
     description: "Treatment and maintenance of healthy gums.",
     longDescription:
       "Gum care focuses on preventing and treating gum-related issues such as gingivitis and periodontitis. "
@@ -72,7 +50,6 @@ export const services = [
   {
     title: "Laser Dentistry",
     slug: "laser-dentistry",
-    category: "services",
     description: "Modern dental treatments using laser technology.",
     longDescription:
       "Laser dentistry provides minimally invasive dental treatments with faster healing, reduced pain, and improved precision. "
@@ -86,12 +63,10 @@ export const services = [
     image: "/images/laser-dentistry.png",
   },
 
-  /* ================= TREATMENTS ================= */
 
   {
     title: "Braces & Aligners",
     slug: "braces-aligners",
-    category: "treatment",
     description: "Straighten your teeth with modern orthodontic solutions.",
     longDescription:
       "Braces and aligners correct misaligned teeth and bite problems. "
@@ -108,7 +83,6 @@ export const services = [
   {
     title: "Root Canal Treatment (RCT)",
     slug: "root-canal-treatment",
-    category: "treatment",
     description: "Save infected teeth with root canal treatment.",
     longDescription:
       "Root canal treatment removes infected pulp tissue from inside the tooth, relieves pain, and restores function. "
@@ -125,7 +99,6 @@ export const services = [
   {
     title: "Bleeding Gums Treatment",
     slug: "bleeding-gums-treatment",
-    category: "treatment",
     description: "Effective treatment for bleeding and inflamed gums.",
     longDescription:
       "Bleeding gums are often a sign of gum disease. "
@@ -142,7 +115,6 @@ export const services = [
   {
     title: "Sedation Dentistry",
     slug: "sedation-dentistry",
-    category: "treatment",
     description: "Stress-free dental treatments using sedation.",
     longDescription:
       "Sedation dentistry helps anxious patients undergo dental procedures comfortably. "
@@ -156,12 +128,10 @@ export const services = [
     image: "/images/sedation-dentistry.jpg",
   },
 
-  /* ================= SURGERY ================= */
 
   {
     title: "Dental Implants",
     slug: "dental-implants",
-    category: "surgery",
     description: "Permanent solution for missing teeth.",
     longDescription:
       "Dental implants replace missing teeth using a titanium post placed in the jawbone. "
@@ -178,7 +148,6 @@ export const services = [
   {
     title: "Wisdom Tooth Extraction",
     slug: "wisdom-tooth-extraction",
-    category: "surgery",
     description: "Safe removal of impacted wisdom teeth.",
     longDescription:
       "Wisdom tooth extraction prevents pain, infection, and overcrowding caused by impacted or partially erupted wisdom teeth.",
@@ -194,7 +163,6 @@ export const services = [
   {
     title: "Periodontal Surgery",
     slug: "periodontal-surgery",
-    category: "surgery",
     description: "Advanced surgical treatment for gum disease.",
     longDescription:
       "Periodontal surgery treats severe gum disease by removing infected tissue and restoring gum health.",
@@ -206,31 +174,10 @@ export const services = [
     ],
     image: "/images/periodontal-surgery.png",
   },
-    /* ================= FACILITIES ================= */
-
-  {
-    title: "Tooth X-Ray Facility",
-    slug: "tooth-xray-facility",
-    category: "facilities",
-    description: "In-house dental X-ray facility for fast diagnosis.",
-    longDescription:
-      "Our clinic provides an in-house tooth X-ray facility that enables immediate imaging and accurate diagnosis. "
-      + "This helps dentists detect dental issues quickly and plan effective treatment without external referrals.",
-    features: [
-      "Instant dental imaging",
-      "Accurate diagnosis",
-      "Reduced waiting time",
-      "Safe & modern equipment",
-    ],
-    image: "/images/tooth-xray-facility.png",
-  },
-
-  /* ================= PROCEDURES ================= */
 
   {
     title: "Dental Bleaching",
     slug: "dental-bleaching",
-    category: "procedures",
     description: "Professional teeth whitening procedure.",
     longDescription:
       "Dental bleaching is a cosmetic procedure designed to remove deep stains and discoloration from teeth. "
@@ -247,7 +194,6 @@ export const services = [
   {
     title: "Fixed Prosthodontics",
     slug: "fixed-prosthodontics",
-    category: "procedures",
     description: "Permanent restoration of missing or damaged teeth.",
     longDescription:
       "Fixed prosthodontics involves crowns, bridges, and restorations that permanently replace missing or damaged teeth. "
@@ -264,7 +210,6 @@ export const services = [
   {
     title: "Artificial Teeth Implant",
     slug: "artificial-teeth-implant",
-    category: "procedures",
     description: "Artificial tooth replacement using implants.",
     longDescription:
       "Artificial teeth implants replace missing teeth using implant-supported prosthetics. "

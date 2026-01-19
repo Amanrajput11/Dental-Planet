@@ -2,6 +2,9 @@ export const doctors = [
   {
     id: 1,
     name: "Dr. Ankur Vatsal",
+    slug: "dr-ankur",
+    title:
+      "Master of Dental Surgery, Cosmetic Dentist & Founder – Dental Planet",
     specialization: "Founder & Chief Dental Surgeon",
     image: "/images/ankur.jpeg",
     description:
@@ -11,10 +14,12 @@ export const doctors = [
   {
     id: 2,
     name: "Dr. Khushboo Barjatya Vatsal",
+    slug: "dr-khushboo",
+    title: "Founder & Pediatric / Child Dental Specialist",
     specialization: "Founder & Pediatric Dentist",
     image: "/images/khusboo.jpeg",
     description:
-      "Dr. Khushboo Barjatya Vatsal is a compassionate pediatric dentist dedicated to the oral health of infants, children, adolescents, and children with special needs. Her expertise includes preventive dentistry, habit correction, early orthodontic care, sedation dentistry, and gentle behavior management, creating a child-friendly and comforting dental experience.",
+      "Dr. Khushboo Barjatya Vatsal is a compassionate pediatric dentist dedicated to the oral health of infants, children, adolescents, and children with special needs.",
     isChildSpecialist: true,
   },
 ];
