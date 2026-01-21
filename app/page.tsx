@@ -7,14 +7,26 @@ import Link from "next/link";
 
 import { doctors } from "@/data/doctors";
 
-import { blogs } from "@/data/blogs";
 import { services } from "@/data/services";
 import ServiceCard from "@/components/ServiceCard";
 import WhyChooseUsCard from "@/components/WhyChooseUsCard";
 import { whyChooseUs } from "@/data/whyChooseUs";
 import DoctorSection from "@/components/DoctorCard";
+import { useEffect, useState } from "react";
+
+const API = process.env.NEXT_PUBLIC_BLOG_API!;
 
 export default function Home() {
+  const [blogs, setBlogs] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      const res = await fetch(`${API}/api/blogs/get-all-blogs`);
+      const data = await res.json();
+      setBlogs(data.blogs || []);
+    };
+    fetchBlogs();
+  }, []);
   return (
     <main>
       {/* ===== HERO ===== */}
@@ -143,42 +155,52 @@ export default function Home() {
       </section>
 
       {/* ===== BLOGS ===== */}
-      {/* ===== BLOGS ===== */}
-      <section className="section-soft-bg py-5">
+      <section className="py-5">
         <div className="container">
-          {/* HEADER */}
           <div className="text-center mb-5">
             <h2 className="section-title">Latest Blogs</h2>
             <p className="section-subtitle">
               Dental tips, guides & oral health insights
             </p>
           </div>
-
           <div className="row g-4">
             {blogs.slice(0, 3).map((blog) => (
-              <div key={blog.slug} className="col-md-4">
-                <div className="card h-100 blog-card border-0 shadow-sm rounded-4 overflow-hidden">
+              <div key={blog._id} className="col-sm-6 col-lg-4">
+                <div className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
                   {/* IMAGE */}
                   <div className="ratio ratio-16x9">
-                    <img
-                      src={blog.image}
+                    <Image
+                      src={`${API}/api/blogs/get-blog-photo/${blog._id}`}
                       alt={blog.title}
-                      className="w-100 h-100"
-                      style={{ objectFit: "cover" }}
+                      fill
+                      unoptimized
+                      className="object-fit-cover"
                     />
                   </div>
 
                   {/* CONTENT */}
                   <div className="card-body d-flex flex-column">
-                    <h5 className="fw-semibold">{blog.title}</h5>
+                    <h5 className="fw-semibold mb-2">{blog.title}</h5>
+                    <div className="small text-muted">
+                      Posted on{" "}
+                      {new Date(blog.createdAt).toLocaleDateString("en-IN", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                      })}{" "}
+                      {/* at{" "}
+                      {new Date(blog.createdAt).toLocaleTimeString("en-IN", {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })} */}
+                    </div>
 
-                    <p className="text-muted small flex-grow-1">
+                    <p className="text-muted small flex-grow-1 lh-lg">
                       {blog.excerpt}
                     </p>
-
                     <Link
-                      href={`/blog/${blog.slug}`}
-                      className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
+                      href={`/blog/${blog._id}`}
+                      className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold mt-auto"
                     >
                       Read Blog →
                     </Link>
@@ -187,9 +209,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-
-          {/* CTA */}
-
           <div className="mt-4 text-center">
             <Link
               href="/blog"

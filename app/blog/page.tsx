@@ -2,9 +2,22 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { blogs } from "@/data/blogs";
+import { useEffect, useState } from "react";
+
+const API = process.env.NEXT_PUBLIC_BLOG_API!;
 
 export default function BlogPage() {
+  const [blogs, setBlogs] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      const res = await fetch(`${API}/api/blogs/get-all-blogs`);
+      const data = await res.json();
+      setBlogs(data.blogs || []);
+    };
+    fetchBlogs();
+  }, []);
+
   return (
     <main>
       {/* PAGE HEADER */}
@@ -27,15 +40,16 @@ export default function BlogPage() {
       <section className="py-5">
         <div className="container">
           <div className="row g-4">
-            {blogs.map((blog) => (
-              <div key={blog.slug} className="col-sm-6 col-lg-4">
+            {blogs.slice(0, 3).map((blog) => (
+              <div key={blog._id} className="col-sm-6 col-lg-4">
                 <div className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
                   {/* IMAGE */}
                   <div className="ratio ratio-16x9">
                     <Image
-                      src={blog.image}
+                      src={`${API}/api/blogs/get-blog-photo/${blog._id}`}
                       alt={blog.title}
                       fill
+                      unoptimized
                       className="object-fit-cover"
                     />
                   </div>
@@ -43,14 +57,17 @@ export default function BlogPage() {
                   {/* CONTENT */}
                   <div className="card-body d-flex flex-column">
                     <h5 className="fw-semibold mb-2">{blog.title}</h5>
-                    <small className="text-muted mb-2">
-                      {blog.date} • {blog.author}
-                    </small>
+                    Posted on{" "}
+                    {new Date(blog.createdAt).toLocaleDateString("en-IN", {
+                      day: "2-digit",
+                      month: "short",
+                      year: "numeric",
+                    })}{" "}
                     <p className="text-muted small flex-grow-1 lh-lg">
                       {blog.excerpt}
                     </p>
                     <Link
-                      href={`/blog/${blog.slug}`}
+                      href={`/blog/${blog._id}`}
                       className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold mt-auto"
                     >
                       Read Blog →
