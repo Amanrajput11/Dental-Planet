@@ -40,7 +40,7 @@ export default function BlogPage() {
       <section className="py-5">
         <div className="container">
           <div className="row g-4">
-            {blogs.slice(0, 3).map((blog) => (
+            {blogs.map((blog) => (
               <div key={blog._id} className="col-sm-6 col-lg-4">
                 <div className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
                   {/* IMAGE */}
