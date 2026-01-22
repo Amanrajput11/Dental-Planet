@@ -909,3 +909,143 @@ textarea.form-control {
   top: 50%;
   transform: translateY(-50%);
 }
+.doctor-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 50rem; /* pill shape */
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+
+  /* Default blue */
+  color: white;
+  border: 2px solid #0d6efd;
+  background-color: #0d6efd;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.doctor-btn:hover {
+  /* Slight color change on hover */
+  color: #ffffff;
+  background-color: #0b5ed7;
+  border-color: #0b5ed7;
+}
+.dental-services-section {
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  position: relative;
+}
+
+.dental-badge {
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  color: #fff;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.dental-title {
+  font-size: 2.8rem;
+  background: linear-gradient(90deg, #0f172a, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dental-description {
+  max-width: 640px;
+  font-size: 1.05rem;
+}
+.gallery-header {
+  position: relative;
+}
+
+.gallery-badge {
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  color: #fff;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.gallery-title {
+  font-size: 2.6rem;
+  background: linear-gradient(90deg, #0f172a, #0284c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gallery-description {
+  max-width: 600px;
+  font-size: 1.05rem;
+}
+.blogs-section-blue {
+  background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
+}
+
+.blogs-badge-blue {
+  background: linear-gradient(90deg, #2563eb, #0ea5e9);
+  color: #fff;
+  font-size: 0.85rem;
+  letter-spacing: 0.4px;
+}
+
+.blogs-title-blue {
+  font-size: 2.7rem;
+  background: linear-gradient(90deg, #0f172a, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blogs-description-blue {
+  max-width: 620px;
+  font-size: 1.05rem;
+}
+.about-dental-section {
+  padding: 2rem 0;
+}
+
+.about-badge {
+  background: linear-gradient(90deg, #2563eb, #0ea5e9);
+  color: #fff;
+  font-size: 0.85rem;
+  letter-spacing: 0.4px;
+}
+
+.about-title {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #0f172a, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-text {
+  max-width: 520px;
+}
+
+.about-btn {
+  background: linear-gradient(90deg, #2563eb, #0ea5e9);
+  color: #fff;
+  border: none;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+  transition: all 0.3s ease;
+}
+
+.about-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.35);
+  color: #fff;
+}
+
+.about-image-wrapper {
+  overflow: hidden;
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+}
+
+.about-image-wrapper img {
+  transition: transform 0.4s ease;
+}
+
+.about-image-wrapper:hover img {
+  transform: scale(1.05);
+}

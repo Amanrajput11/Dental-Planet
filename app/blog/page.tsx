@@ -2,54 +2,45 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-
-const API = process.env.NEXT_PUBLIC_BLOG_API!;
+import { blogs } from "@/data/blogs";
 
 export default function BlogPage() {
-  const [blogs, setBlogs] = useState<any[]>([]);
-
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      const res = await fetch(`${API}/api/blogs/get-all-blogs`);
-      const data = await res.json();
-      setBlogs(data.blogs || []);
-    };
-    fetchBlogs();
-  }, []);
-
   return (
     <main>
       {/* PAGE HEADER */}
-      <section className="py-5 bg-light">
-        <div className="container text-center">
-          <span className="badge bg-primary-subtle text-primary mb-3 px-3 py-2 rounded-pill">
-            Knowledge Hub
-          </span>
+      <section className="py-5 blogs-section-blue">
+  <div className="container text-center">
 
-          <h1 className="fw-bold mb-2">Dental Blogs</h1>
+    <span className="badge blogs-badge-blue mb-3 px-4 py-2 rounded-pill">
+      📘 Knowledge Hub
+    </span>
 
-          <p className="text-muted mb-0 mx-auto" style={{ maxWidth: 620 }}>
-            Expert tips, guides & insights to help you maintain a healthy,
-            confident smile.
-          </p>
-        </div>
-      </section>
+    <h1 className="fw-bold mb-2 blogs-title-blue">
+      Dental Blogs
+    </h1>
+
+    <p className="text-muted mb-0 mx-auto blogs-description-blue">
+      Expert tips, guides & insights to help you maintain a healthy,
+      confident smile.
+    </p>
+
+  </div>
+</section>
+
 
       {/* BLOG GRID */}
       <section className="py-5">
         <div className="container">
           <div className="row g-4">
             {blogs.map((blog) => (
-              <div key={blog._id} className="col-sm-6 col-lg-4">
+              <div key={blog.slug} className="col-sm-6 col-lg-4">
                 <div className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
                   {/* IMAGE */}
                   <div className="ratio ratio-16x9">
                     <Image
-                      src={`${API}/api/blogs/get-blog-photo/${blog._id}`}
+                      src={blog.image}
                       alt={blog.title}
                       fill
-                      unoptimized
                       className="object-fit-cover"
                     />
                   </div>
@@ -57,17 +48,14 @@ export default function BlogPage() {
                   {/* CONTENT */}
                   <div className="card-body d-flex flex-column">
                     <h5 className="fw-semibold mb-2">{blog.title}</h5>
-                    Posted on{" "}
-                    {new Date(blog.createdAt).toLocaleDateString("en-IN", {
-                      day: "2-digit",
-                      month: "short",
-                      year: "numeric",
-                    })}{" "}
+                    <small className="text-muted mb-2">
+                      {blog.date} • {blog.author}
+                    </small>
                     <p className="text-muted small flex-grow-1 lh-lg">
                       {blog.excerpt}
                     </p>
                     <Link
-                      href={`/blog/${blog._id}`}
+                      href={`/blog/${blog.slug}`}
                       className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold mt-auto"
                     >
                       Read Blog →

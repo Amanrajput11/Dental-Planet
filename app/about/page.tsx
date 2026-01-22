@@ -10,46 +10,51 @@ export default function About() {
       {/* ===== HERO ===== */}
       <section className="py-5 bg-light">
         <div className="container">
-          <div className="row align-items-center gy-4">
-            {/* TEXT */}
-            <div className="col-lg-6">
-              <span className="badge bg-info text-white mb-3 px-3 py-2">
-                About Dental Planet
-              </span>
+          <div className="row align-items-center gy-4 about-dental-section">
+  {/* TEXT */}
+  <div className="col-lg-6">
 
-              <h1 className="fw-bold display-6 mt-2 text-dark">
-                Caring for Smiles <br className="d-none d-md-block" />
-                With Compassion & Expertise
-              </h1>
+    <span className="badge about-badge mb-3 px-4 py-2 rounded-pill">
+      🦷 About Dental Planet
+    </span>
 
-              <p className="text-muted fs-5 mt-3">
-                We combine modern dental technology with gentle, patient-first
-                care to help you smile with confidence.
-              </p>
-              <div className="mt-4">
-                <a
-                  href="/services"
-                  className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
-                >
-                  Explore Our Services →
-                </a>
-              </div>
-            </div>
+    <h1 className="fw-bold mt-2 about-title">
+      Caring for Smiles
+      <br className="d-none d-md-block" />
+      With Compassion & Expertise
+    </h1>
 
-            {/* IMAGE */}
-            <div className="col-lg-6 text-center">
-              <div className="overflow-hidden rounded-4 shadow-sm">
-                <Image
-                  src="/images/bg1.jpeg"
-                  alt="Dental Planet Team"
-                  width={800}
-                  height={500}
-                  className="img-fluid"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
+    <p className="text-muted fs-5 mt-3 about-text">
+      We combine modern dental technology with gentle, patient-first
+      care to help you smile with confidence.
+    </p>
+
+    <div className="mt-4">
+      <a
+        href="/services"
+        className="btn about-btn px-5 py-3 rounded-pill fw-semibold"
+      >
+        Explore Our Services →
+      </a>
+    </div>
+
+  </div>
+
+  {/* IMAGE */}
+  <div className="col-lg-6 text-center">
+    <div className="about-image-wrapper">
+      <Image
+        src="/images/bg1.jpeg"
+        alt="Dental Planet Team"
+        width={800}
+        height={500}
+        className="img-fluid"
+        priority
+      />
+    </div>
+  </div>
+</div>
+
         </div>
       </section>
 

@@ -12,12 +12,19 @@ export default function GalleryPage() {
       <main className="py-5 bg-light">
         <div className="container">
           {/* HEADER */}
-          <div className="text-center mb-5">
-            <h1 className="fw-bold text-info">Clinic Gallery</h1>
-            <p className="text-muted">
-              Explore our modern infrastructure, equipment & patient-friendly
-              spaces
-            </p>
+           <div className="text-center mb-5 gallery-header">
+
+    <span className="badge gallery-badge mb-3 px-4 py-2 rounded-pill">
+      🏥 Our Clinic
+    </span>
+
+    <h1 className="fw-bold gallery-title mb-2">
+      Clinic Gallery
+    </h1>
+
+    <p className="text-muted gallery-description mx-auto">
+      Explore our modern infrastructure, equipment & patient-friendly spaces
+    </p>
           </div>
 
           {/* GALLERY GRID */}
