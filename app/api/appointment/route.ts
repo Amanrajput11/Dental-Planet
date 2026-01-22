@@ -5,49 +5,51 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
-    console.log("API HIT 👉", body);
-
-    const { name, email, phone, date, time, message } = body;
+    const { name, email, phone, date, time, message } = await req.json();
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: "amanrajput79644@gmail.com",
+        pass: "rpym vxsx ekkc iiuh",
       },
     });
 
     await transporter.verify();
-    console.log("SMTP VERIFIED ✅");
 
     await transporter.sendMail({
-      from: `"Dental Planet" <${process.env.EMAIL_USER}>`,
-      to: process.env.ADMIN_EMAIL,
-      subject: "🦷 New Appointment Booked",
-      text: `
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Date: ${date}
-Time: ${time}
-Message: ${message}
+      from: `"Dental Planet" <amanrajput79644@gmail.com>`,
+      to: "amanrajput79654@gmail.com",
+      subject: "🦷 New Appointment Booking",
+      html: `
+        <h2>New Appointment</h2>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <p><b>Date:</b> ${date}</p>
+        <p><b>Time:</b> ${time}</p>
+        <p><b>Message:</b> ${message || "N/A"}</p>
       `,
     });
 
     await transporter.sendMail({
-      from: `"Dental Planet" <${process.env.EMAIL_USER}>`,
+      from: `"Dental Planet" <amanrajput79644@gmail.com>`,
       to: email,
-      subject: "Appointment Confirmed",
-      text: `Hello ${name}, your appointment is confirmed on ${date} at ${time}.`,
+      subject: "✅ Appointment Confirmed",
+      html: `
+        <p>Hello <b>${name}</b>,</p>
+        <p>Your dental appointment has been successfully booked.</p>
+        <p><b>Date:</b> ${date}</p>
+        <p><b>Time:</b> ${time}</p>
+        <p>We look forward to seeing you 😊</p>
+        <br/>
+        <p>— Dental Planet</p>
+      `,
     });
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
     console.error("EMAIL ERROR ❌", error);
-    return NextResponse.json(
-      { error: error.message },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
