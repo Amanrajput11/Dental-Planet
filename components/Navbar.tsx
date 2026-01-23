@@ -87,7 +87,14 @@ export default function Navbar() {
       {/* MOBILE NAV */}
       {/* MOBILE NAV */}
       {open && (
-        <div className="d-lg-none navbar-mobile border-top w-100 text-center bg-white">
+        <div
+          className="d-lg-none navbar-mobile border-top w-100 text-center bg-white"
+          style={{
+            maxHeight: "calc(100vh - 80px)",
+            overflowY: "auto",
+            WebkitOverflowScrolling: "touch",
+          }}
+        >
           <ul className="navbar-nav px-4 py-4 gap-3">
             {/* NAV LINKS */}
             {["about", "services", "gallery", "blog"].map((item) => (
@@ -103,10 +110,10 @@ export default function Navbar() {
             ))}
 
             {/* BOOK APPOINTMENT CTA */}
-            <li className="nav-item mt-2">
+            <li className="nav-item">
               <Link
+                className="nav-link nav-link-modern"
                 href="/book-appointment"
-                className="btn btn-primary w-100 rounded-pill py-2"
                 onClick={() => setOpen(false)}
               >
                 Book Appointment
@@ -114,7 +121,7 @@ export default function Navbar() {
             </li>
 
             {/* INSTAGRAM ICON (IMAGE) */}
-            <li className="nav-item mt-3 d-flex justify-content-center">
+            <li className="nav-item  d-flex justify-content-center">
               <a
                 href="https://www.instagram.com/dental_____planet/"
                 target="_blank"
