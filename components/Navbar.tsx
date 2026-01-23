@@ -85,9 +85,11 @@ export default function Navbar() {
         </div>
       </div>
       {/* MOBILE NAV */}
+      {/* MOBILE NAV */}
       {open && (
-        <div className="d-lg-none navbar-mobile border border-black w-100 text-center">
+        <div className="d-lg-none navbar-mobile border-top w-100 text-center bg-white">
           <ul className="navbar-nav px-4 py-4 gap-3">
+            {/* NAV LINKS */}
             {["about", "services", "gallery", "blog"].map((item) => (
               <li className="nav-item" key={item}>
                 <Link
@@ -99,6 +101,42 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
+
+            {/* BOOK APPOINTMENT CTA */}
+            <li className="nav-item mt-2">
+              <Link
+                href="/book-appointment"
+                className="btn btn-primary w-100 rounded-pill py-2"
+                onClick={() => setOpen(false)}
+              >
+                Book Appointment
+              </Link>
+            </li>
+
+            {/* INSTAGRAM ICON (IMAGE) */}
+            <li className="nav-item mt-3 d-flex justify-content-center">
+              <a
+                href="https://www.instagram.com/dental_____planet/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="d-inline-flex align-items-center justify-content-center rounded-circle"
+                style={{
+                  width: 44,
+                  height: 44,
+                  background: "#ffffff",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                }}
+                aria-label="Instagram"
+              >
+                <img
+                  src="/images/instagram.png"
+                  alt="Instagram"
+                  width="24"
+                  height="24"
+                />
+              </a>
+            </li>
           </ul>
         </div>
       )}
