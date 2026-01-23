@@ -21,19 +21,87 @@ export async function POST(req: Request) {
     await transporter.verify();
     console.log("SMTP VERIFIED ✅");
 
-//     await transporter.sendMail({
-//       from: `"Dental Planet" <${process.env.EMAIL_USER}>`,
-//       to: process.env.ADMIN_EMAIL,
-//       subject: "🦷 New Appointment Booked",
-//       text: `
-// Name: ${name}
-// Email: ${email}
-// Phone: ${phone}
-// Date: ${date}
-// Time: ${time}
-// Message: ${message}
-//       `,
-//     });
+ await transporter.sendMail({
+  from: `"Dental Planet" <${process.env.EMAIL_USER}>`,
+  to: process.env.ADMIN_EMAIL,
+  subject: "🦷 New Appointment Booked – Dental Planet",
+  html: `
+  <div style="background:#f4f6f8;padding:20px;font-family:Arial,sans-serif">
+    <table width="100%" cellspacing="0" cellpadding="0"
+      style="max-width:600px;margin:auto;background:#ffffff;border-radius:8px">
+      
+      <!-- HEADER -->
+      <tr>
+        <td style="text-align:center;padding:20px">
+          <img 
+            src="https://dental-planet.vercel.app/images/logo2.png" 
+            alt="Dental Planet" 
+            width="80"
+            style="margin-bottom:10px"
+          />
+          <h2 style="color:#0d6efd;margin:0">
+            New Appointment Booked
+          </h2>
+          <p style="color:#666;margin-top:5px">
+            A patient has booked a new appointment
+          </p>
+        </td>
+      </tr>
+
+      <!-- DETAILS -->
+      <tr>
+        <td style="padding:20px;color:#333">
+          <table width="100%" cellpadding="6" cellspacing="0"
+            style="border-collapse:collapse">
+            
+            <tr>
+              <td style="font-weight:bold;width:140px">Name:</td>
+              <td>${name}</td>
+            </tr>
+
+            <tr style="background:#f8f9fa">
+              <td style="font-weight:bold">Email:</td>
+              <td>${email}</td>
+            </tr>
+
+            <tr>
+              <td style="font-weight:bold">Phone:</td>
+              <td>${phone}</td>
+            </tr>
+
+            <tr style="background:#f8f9fa">
+              <td style="font-weight:bold">Date:</td>
+              <td>${date}</td>
+            </tr>
+
+            <tr>
+              <td style="font-weight:bold">Time:</td>
+              <td>${time}</td>
+            </tr>
+
+            <tr style="background:#f8f9fa">
+              <td style="font-weight:bold;vertical-align:top">
+                Message:
+              </td>
+              <td>${message || "N/A"}</td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+
+      <!-- FOOTER -->
+      <tr>
+        <td style="background:#f1f3f5;text-align:center;padding:12px;
+                   font-size:12px;color:#777">
+          This is an automated email from Dental Planet.
+        </td>
+      </tr>
+
+    </table>
+  </div>
+  `,
+});
 
 await transporter.sendMail({
   from: `"Dental Planet" <${process.env.EMAIL_USER}>`,

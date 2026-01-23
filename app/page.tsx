@@ -163,6 +163,7 @@ export default function Home() {
               Dental tips, guides & oral health insights
             </p>
           </div>
+
           <div className="row g-4">
             {blogs.slice(0, 3).map((blog) => (
               <div key={blog._id} className="col-sm-6 col-lg-4">
@@ -181,23 +182,20 @@ export default function Home() {
                   {/* CONTENT */}
                   <div className="card-body d-flex flex-column">
                     <h5 className="fw-semibold mb-2">{blog.title}</h5>
-                    <div className="small text-muted">
+
+                    <div className="small text-muted mb-2">
                       Posted on{" "}
                       {new Date(blog.createdAt).toLocaleDateString("en-IN", {
                         day: "2-digit",
                         month: "short",
                         year: "numeric",
-                      })}{" "}
-                      {/* at{" "}
-                      {new Date(blog.createdAt).toLocaleTimeString("en-IN", {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })} */}
+                      })}
                     </div>
 
                     <p className="text-muted small flex-grow-1 lh-lg">
                       {blog.excerpt}
                     </p>
+
                     <Link
                       href={`/blog/${blog._id}`}
                       className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold mt-auto"
@@ -209,14 +207,18 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="mt-4 text-center">
-            <Link
-              href="/blog"
-              className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
-            >
-              View All Blogs →
-            </Link>
-          </div>
+
+          {/* VIEW ALL BLOGS – CONDITIONAL */}
+          {blogs.length > 3 && (
+            <div className="mt-4 text-center">
+              <Link
+                href="/blog"
+                className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
+              >
+                View All Blogs →
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 
