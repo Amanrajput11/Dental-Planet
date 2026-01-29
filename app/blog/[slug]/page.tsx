@@ -5,12 +5,14 @@ const API = process.env.NEXT_PUBLIC_BLOG_API!;
 export default async function BlogDetail({
   params,
 }: {
-  params: Promise<{ blogId: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { blogId } = await params;
+  const { slug: rawSlug } = await params;
+  const slug = rawSlug.toLowerCase();
 
-  // 1️⃣ Fetch current blog
-  const blogRes = await fetch(`${API}/api/blogs/get-single-blog/${blogId}`, {
+  console.log("Fetching blog with slug:", slug);
+
+  const blogRes = await fetch(`${API}/api/blogs/get-blog-by-slug/${slug}`, {
     cache: "no-store",
   });
 
@@ -18,13 +20,13 @@ export default async function BlogDetail({
     return (
       <div className="container py-5 text-center">
         <h2>Blog not found</h2>
+        <p className="text-muted">Slug: {slug}</p>
       </div>
     );
   }
 
   const { blog } = await blogRes.json();
 
-  // 2️⃣ Fetch all blogs for "Recent Posts"
   const allRes = await fetch(`${API}/api/blogs/get-all-blogs`, {
     cache: "no-store",
   });
@@ -37,7 +39,6 @@ export default async function BlogDetail({
 
   return (
     <div className="container py-5">
-      {/* BACK */}
       <div className="mb-4">
         <Link
           href="/blog"
@@ -48,7 +49,6 @@ export default async function BlogDetail({
       </div>
 
       <div className="row g-5">
-        {/* ================= LEFT : BLOG CONTENT ================= */}
         <div className="col-lg-8">
           <article className="bg-white rounded-4 shadow-sm p-4 p-md-5">
             <h1 className="mb-3">{blog.title}</h1>
@@ -83,7 +83,6 @@ export default async function BlogDetail({
           </article>
         </div>
 
-        {/* ================= RIGHT : RECENT POSTS ================= */}
         <div className="col-12 col-lg-4">
           <div className="sticky-lg-top" style={{ top: "120px" }}>
             <aside className="bg-white rounded-4 shadow-sm p-4">
@@ -93,7 +92,7 @@ export default async function BlogDetail({
                 {recentBlogs.map((b: any) => (
                   <li key={b._id}>
                     <Link
-                      href={`/blog/${b._id}`}
+                      href={`/blog/${b.slug}`}
                       className="d-flex gap-3 text-decoration-none align-items-start"
                     >
                       <img
@@ -125,12 +124,7 @@ export default async function BlogDetail({
                             day: "2-digit",
                             month: "short",
                             year: "numeric",
-                          })}{" "}
-                          {/* at{" "}
-                          {new Date(b.createdAt).toLocaleTimeString("en-IN", {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                          })} */}
+                          })}
                         </div>
                       </div>
                     </Link>

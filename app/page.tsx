@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Image from "next/image";
 import Link from "next/link";
+import BookAppointment from "./book-appointment/page";
+
 // import DoctorCard from "@/components/DoctorCard";
 
 import { doctors } from "@/data/doctors";
@@ -14,7 +16,7 @@ import { whyChooseUs } from "@/data/whyChooseUs";
 import DoctorSection from "@/components/DoctorCard";
 import { useEffect, useState } from "react";
 
-const API = process.env.NEXT_PUBLIC_BLOG_API!;
+const API = "https://dental-planet.onrender.com";
 
 export default function Home() {
   const [blogs, setBlogs] = useState<any[]>([]);
@@ -199,7 +201,7 @@ export default function Home() {
                       {blog.excerpt}
                     </p>
                     <Link
-                      href={`/blog/${blog._id}`}
+                      href={`/blog/${blog.slug}`}
                       className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold mt-auto"
                     >
                       Read Blog →
@@ -332,6 +334,10 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section>
+      {/* ===== BOOK APPOINTMENT ===== */}
+      <section id="appointment" className="bg-light">
+        <BookAppointment />
       </section>
     </main>
   );
