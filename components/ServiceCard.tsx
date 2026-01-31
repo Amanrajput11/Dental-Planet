@@ -14,7 +14,7 @@ export default function ServiceCard({
   image: string;
 }) {
   return (
-    <div className="card h-100 shadow-sm border-0 card-hover">
+    <div className="card h-100 pb-4">
       <div className="card-body d-flex flex-column gap-3">
         {/* IMAGE + TITLE (COLUMN) */}
         <div className="d-flex flex-column align-items-start gap-3">

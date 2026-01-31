@@ -15,10 +15,13 @@ export default function BookAppointment() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const handleChange = (e: any) =>
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setSuccess(false);
@@ -45,123 +48,113 @@ export default function BookAppointment() {
   };
 
   return (
-    <section className="py-5 bg-gradient" style={{ background: "#f4f9ff" }}>
+    <section className="py-5 bg-light">
       <div className="container">
         <div className="row justify-content-center">
-          <div className="col-xl-9 col-lg-10">
-            <div className="card border-0 shadow-lg rounded-5">
+          <div className="col-lg-7 col-md-9">
+            <div className="card border-0 shadow-sm rounded-4">
               <div className="card-body p-4 p-md-5">
+                {/* HEADER */}
                 <div className="text-center mb-4">
-                  <div
-                    className="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle"
-                    style={{
-                      width: 70,
-                      height: 70,
-                      background: "#0d6efd",
-                      color: "white",
-                      fontSize: 30,
-                    }}
-                  >
-                    🦷
-                  </div>
-                  <h2 className="fw-bold">Book Appointment</h2>
+                  <span className="badge bg-warning text-dark px-3 py-2 rounded-pill mb-3">
+                    Book Appointment
+                  </span>
+                  <h2 className="fw-bold mb-1">Schedule Your Visit</h2>
                   <p className="text-muted mb-0">
                     Quick & easy dental consultation booking
                   </p>
                 </div>
 
+                {/* SUCCESS */}
                 {success && (
-                  <div className="alert alert-success text-center rounded-pill">
+                  <div className="alert alert-success text-center rounded-pill mb-4">
                     ✅ Appointment booked! Confirmation email sent.
                   </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="row g-4">
+                {/* FORM */}
+                <form onSubmit={handleSubmit} className="row g-3">
                   <div className="col-md-6">
-                    <label className="form-label">Full Name</label>
-                    <div className="input-group">
-                      <span className="input-group-text">👤</span>
-                      <input
-                        className="form-control form-control-lg"
-                        name="name"
-                        placeholder="Your name"
-                        required
-                        onChange={handleChange}
-                        value={form.name}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-md-6">
-                    <label className="form-label">Email</label>
-                    <div className="input-group">
-                      <span className="input-group-text">📧</span>
-                      <input
-                        className="form-control form-control-lg"
-                        type="email"
-                        name="email"
-                        placeholder="your@email.com"
-                        required
-                        onChange={handleChange}
-                        value={form.email}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-md-6">
-                    <label className="form-label">Phone</label>
-                    <div className="input-group">
-                      <span className="input-group-text">📞</span>
-                      <input
-                        className="form-control form-control-lg"
-                        name="phone"
-                        placeholder="Phone number"
-                        required
-                        onChange={handleChange}
-                        value={form.phone}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-md-3">
-                    <label className="form-label">Date</label>
+                    <label className="form-label fw-semibold">Full Name</label>
                     <input
-                      className="form-control form-control-lg"
-                      type="date"
-                      name="date"
-                      required
+                      type="text"
+                      name="name"
+                      className="form-control"
+                      placeholder="Your full name"
+                      value={form.name}
                       onChange={handleChange}
-                      value={form.date}
+                      required
                     />
                   </div>
 
-                  <div className="col-md-3">
-                    <label className="form-label">Time</label>
+                  <div className="col-md-6">
+                    <label className="form-label fw-semibold">Email</label>
                     <input
-                      className="form-control form-control-lg"
+                      type="email"
+                      name="email"
+                      className="form-control"
+                      placeholder="your@email.com"
+                      value={form.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="col-md-6">
+                    <label className="form-label fw-semibold">Phone</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      className="form-control"
+                      placeholder="Phone number"
+                      value={form.phone}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="col-md-3 col-6">
+                    <label className="form-label fw-semibold">Date</label>
+                    <input
+                      type="date"
+                      name="date"
+                      className="form-control"
+                      value={form.date}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="col-md-3 col-6">
+                    <label className="form-label fw-semibold">Time</label>
+                    <input
                       type="time"
                       name="time"
-                      required
-                      onChange={handleChange}
+                      className="form-control"
                       value={form.time}
+                      onChange={handleChange}
+                      required
                     />
                   </div>
 
                   <div className="col-12">
-                    <label className="form-label">Message (Optional)</label>
+                    <label className="form-label fw-semibold">
+                      Message <span className="text-muted">(Optional)</span>
+                    </label>
                     <textarea
-                      className="form-control"
                       name="message"
+                      className="form-control"
                       rows={4}
                       placeholder="Describe your concern"
-                      onChange={handleChange}
                       value={form.message}
+                      onChange={handleChange}
                     />
                   </div>
 
                   <div className="col-12 text-center mt-3">
                     <button
-                      className="btn btn-primary btn-lg px-5 rounded-pill"
+                      type="submit"
+                      className="btn btn-warning px-5 py-2 fw-semibold rounded-pill"
                       disabled={loading}
                     >
                       {loading ? (

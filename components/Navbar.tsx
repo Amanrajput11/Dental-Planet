@@ -15,10 +15,10 @@ export default function Navbar() {
           <Image
             src="/images/logo3.png"
             alt="Dental Planet Logo"
-            width={220}
-            height={120}
+            width={260}
+            height={140}
             priority
-            className="navbar-logo"
+            className="logo-gold"
           />
         </Link>
         {/* TOGGLER */}
@@ -124,7 +124,6 @@ export default function Navbar() {
         </div>
       </div>
       {/* MOBILE NAV */}
-      {/* MOBILE NAV */}
       {open && (
         <div
           className="d-lg-none navbar-mobile border-top w-100 text-center bg-white"
@@ -170,17 +169,41 @@ export default function Navbar() {
                 style={{
                   width: 44,
                   height: 44,
-                  background: "#ffffff",
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
                 }}
                 aria-label="Instagram"
               >
                 <img
                   src="/images/instagram.png"
                   alt="Instagram"
+                  width="36"
+                  height="36"
+                />
+              </a>
+            </li>
+            <li className="nav-item  d-flex justify-content-center">
+              <a
+                href="https://www.facebook.com/dentistcareforall"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="d-inline-flex align-items-center justify-content-center rounded-circle"
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  textDecoration: "none",
+                  backgroundColor: "#1877F2", // Official Facebook Blue
+                  color: "white", // White icon
+                }}
+                aria-label="Facebook"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
-                />
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                </svg>
               </a>
             </li>
           </ul>

@@ -7,25 +7,20 @@ export default function Services() {
   return (
     <>
       {/* PAGE HEADER */}
-     <section className="py-5 dental-services-section">
-  <div className="container text-center">
+      <section className="py-5 dental-services-section">
+        <div className="container text-center">
+          <span className="badge dental-badge mb-3 px-4 py-2 rounded-pill">
+            What We Offer
+          </span>
 
-    <span className="badge dental-badge mb-3 px-4 py-2 rounded-pill">
-      🦷 What We Offer
-    </span>
+          <h1 className="fw-bold mb-3 dental-title">Our Dental Services</h1>
 
-    <h1 className="fw-bold mb-3 dental-title">
-      Our Dental Services
-    </h1>
-
-    <p className="text-muted mb-0 mx-auto dental-description">
-      Comprehensive dental care using modern technology, ethical practices,
-      and patient-first treatment.
-    </p>
-
-  </div>
-</section>
-
+          <p className="text-muted mb-0 mx-auto dental-description">
+            Comprehensive dental care using modern technology, ethical
+            practices, and patient-first treatment.
+          </p>
+        </div>
+      </section>
 
       {/* ALL SERVICES GRID */}
       <div className="container py-5">

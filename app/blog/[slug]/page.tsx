@@ -83,7 +83,7 @@ export default async function BlogDetail({
           </article>
         </div>
 
-        <div className="col-12 col-lg-4">
+        <div className="col-12 col-lg-4 z-1">
           <div className="sticky-lg-top" style={{ top: "120px" }}>
             <aside className="bg-white rounded-4 shadow-sm p-4">
               <h5 className="fw-semibold mb-3">Recent Posts</h5>

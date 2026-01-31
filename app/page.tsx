@@ -32,27 +32,25 @@ export default function Home() {
   return (
     <main>
       {/* ===== HERO ===== */}
-      <section className="w-100 overflow-hidden">
+      <section className="hero-section">
         <img
           src="/images/bg2.jpeg"
           alt="Dental Planet"
           className="w-100 h-100"
           style={{
             objectFit: "cover",
-            objectPosition: "center bottom", // 👈 crops from TOP
-            display: "block",
           }}
         />
       </section>
 
       {/* ===== ABOUT ===== */}
-      <section className="py-5 bg-light">
+      <section className="about-section py-5">
         <div className="container">
           <div className="row align-items-center g-5">
             {/* LEFT CONTENT */}
             <div className="col-lg-6">
               <h2 className="fw-bold mb-3 text-center text-lg-start">
-                Welcome to <span className="text-primary">Dental Planet</span>
+                Welcome to <span className="text-gold">Dental Planet</span>
               </h2>
 
               <p className="fs-6 text-muted mb-3 lh-lg">
@@ -105,7 +103,7 @@ export default function Home() {
 
       {/* ===== DOCTORS (FULL SECTIONS) ===== */}
       {/* ================= DOCTORS SECTION ================= */}
-      <section className="py-5" style={{ background: "#f8fafc" }}>
+      <section className="py-5">
         <div className="container mb-5">
           <div className="text-center">
             <h2 className="fw-bold mb-2">Meet Our Doctors</h2>
@@ -120,7 +118,7 @@ export default function Home() {
       </section>
 
       {/* ===== SERVICES ===== */}
-      <section className="py-5">
+      <section className="py-2 bg-light">
         <div className="container">
           {/* HEADER */}
           <div className="text-center mb-5">
@@ -145,10 +143,10 @@ export default function Home() {
           </div>
 
           {/* CTA */}
-          <div className="mt-4 text-center">
+          <div className="mt-4 mb-3 text-center">
             <Link
               href="/services"
-              className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
+              className="btn btn-gold fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
             >
               Explore Our Services →
             </Link>
@@ -157,7 +155,7 @@ export default function Home() {
       </section>
 
       {/* ===== BLOGS ===== */}
-      <section className="py-5">
+      <section className="py-2 bg-light ">
         <div className="container">
           <div className="text-center mb-5">
             <h2 className="section-title">Latest Blogs</h2>
@@ -200,7 +198,7 @@ export default function Home() {
 
                     <Link
                       href={`/blog/${blog.slug}`}
-                      className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold mt-auto"
+                      className="btn btn-gold fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold mt-auto"
                     >
                       Read Blog →
                     </Link>
@@ -212,10 +210,10 @@ export default function Home() {
 
           {/* VIEW ALL BLOGS – CONDITIONAL */}
           {blogs.length > 3 && (
-            <div className="mt-4 text-center">
+            <div className="mt-4 mb-3 text-center">
               <Link
                 href="/blog"
-                className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
+                className="btn btn-gold fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold"
               >
                 View All Blogs →
               </Link>

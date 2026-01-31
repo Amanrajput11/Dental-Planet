@@ -64,7 +64,7 @@ export default async function ServiceDetail({
         </div>
 
         {/* RIGHT SIDEBAR */}
-        <div className="col-lg-4">
+        <div className="col-lg-4 z-1">
           <div className="sticky-lg-top" style={{ top: "120px" }}>
             <aside className="bg-white rounded-4 shadow-sm p-4">
               <h5 className="fw-semibold mb-4">Related Services</h5>

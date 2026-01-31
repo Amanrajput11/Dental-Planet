@@ -23,21 +23,17 @@ export default function BlogPage() {
       {/* PAGE HEADER */}
       <section className="py-5 blogs-section-blue">
         <div className="container text-center">
-          <span className="badge blogs-badge-blue mb-3 px-4 py-2 rounded-pill">
-            📘 Knowledge Hub
-          </span>
-
-          <h1 className="fw-bold mb-2 blogs-title-blue">Dental Blogs</h1>
-
-          <p className="text-muted mb-0 mx-auto blogs-description-blue">
-            Expert tips, guides & insights to help you maintain a healthy,
-            confident smile.
-          </p>
+          <div className="text-center mb-5">
+            <h2 className="section-title">Latest Blogs</h2>
+            <p className="section-subtitle">
+              Dental tips, guides & oral health insights
+            </p>
+          </div>
         </div>
       </section>
 
       {/* BLOG GRID */}
-      <section className="py-5">
+      <section>
         <div className="container">
           <div className="row g-4">
             {blogs.map((blog) => (
@@ -64,19 +60,14 @@ export default function BlogPage() {
                         month: "short",
                         year: "numeric",
                       })}{" "}
-                      {/* at{" "}
-                                  {new Date(blog.createdAt).toLocaleTimeString("en-IN", {
-                                    hour: "2-digit",
-                                    minute: "2-digit",
-                                  })} */}
                     </div>
 
                     <p className="text-muted small flex-grow-1 lh-lg">
                       {blog.excerpt}
                     </p>
                     <Link
-                      href={`/blog/${blog._id}`}
-                      className="btn btn-sm fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold mt-auto"
+                      href={`/blog/${blog.slug}`}
+                      className="btn btn-gold fs-6 px-5 py-3 rounded-pill shadow-lg btn-outline-info fw-semibold mt-auto"
                     >
                       Read Blog →
                     </Link>
