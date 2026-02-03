@@ -13,7 +13,7 @@ export default function Navbar() {
         {/* BRAND */}
         <Link href="/" className="navbar-brand d-flex align-items-center gap-2">
           <Image
-            src="/images/logo3.png"
+            src="/images/logo4.png"
             alt="Dental Planet Logo"
             width={260}
             height={140}

@@ -1,6 +1,7 @@
 /* =========================
    ROOT VARIABLES (GOLD THEME)
 ========================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
   --gold: #c9a24d;
@@ -15,7 +16,7 @@
 body {
   background: var(--ivory);
   color: var(--black);
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 h1, h2, h3 {

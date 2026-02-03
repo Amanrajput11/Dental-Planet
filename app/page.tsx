@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Image from "next/image";
 import Link from "next/link";
 import BookAppointment from "./book-appointment/page";
+import AppointmentPopup from "@/components/AppointmentPopup";
 
 // import DoctorCard from "@/components/DoctorCard";
 
@@ -31,6 +32,7 @@ export default function Home() {
   }, []);
   return (
     <main>
+       <AppointmentPopup/>
       {/* ===== HERO ===== */}
       <section className="hero-section">
         <img
@@ -56,9 +58,16 @@ export default function Home() {
               <p className="fs-6 text-muted mb-3 lh-lg">
                 <strong>Dental Planet – The World of Dental Perfection</strong>{" "}
                 is a premier dental care center founded by
-                <strong> Dr. Ankur Vatsal</strong> and
-                <strong> Dr. Khushboo Barjatya Vatsal</strong>, located in Tilak
-                Nagar, Indore.
+                <strong style={{ color: "#C7A34A" }}>
+                  {" "}
+                  Dr. Ankur Vatsal
+                </strong>{" "}
+                and
+                <strong style={{ color: "#C7A34A" }}>
+                  {" "}
+                  Dr. Khushboo Barjatya Vatsal
+                </strong>
+                , located in Tilak Nagar, Indore.
               </p>
 
               <p className="text-muted mb-4 lh-lg">

@@ -32,7 +32,12 @@ export default function DoctorSection({ doctor, reverse = false }: any) {
           {/* CONTENT */}
           <div className="col-12 col-lg-7 d-flex align-items-center">
             <div className="w-100 text-center text-lg-start">
-              <h2 className="fw-bold display-6 mb-1">{doctor.name}</h2>
+              <h2
+                className="fw-bold display-6 mb-1"
+                style={{ color: "#C7A34A" }}
+              >
+                {doctor.name}
+              </h2>
 
               <p className="text-muted fw-medium mb-2">{doctor.title}</p>
 

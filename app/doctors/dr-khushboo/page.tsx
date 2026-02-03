@@ -99,7 +99,10 @@ export default function DrKhushbooPage() {
               <h5 className="fw-semibold mb-3 text-primary">Clinic Timings</h5>
               <ul className="lh-lg mb-0 list-unstyled">
                 <li>
-                  <strong>Weekdays:</strong> 10:00 AM – 2:00 PM
+                  <strong>Weekdays:</strong>
+                </li>
+                 <li>
+                  <strong>Morning:</strong> 09:30 AM – 2:30 PM
                 </li>
                 <li>
                   <strong>Evening:</strong> 5:00 PM – 8:30 PM
