@@ -56,7 +56,7 @@ export default function DrKhushbooPage() {
 
           {/* CTA ROW */}
           <div className="d-flex flex-column flex-sm-row gap-3 mt-4">
-            <span className="badge bg-warning text-dark rounded-pill px-4 py-2 fs-6 shadow-sm">
+            <span className="badge bg-warning text-dark rounded-pill px-3 py-2 fs-8 shadow-sm">
               Pediatric / Child Dental Specialist
             </span>
           </div>
@@ -65,9 +65,22 @@ export default function DrKhushbooPage() {
 
       {/* ================= SERVICES ================= */}
       <section className="bg-light rounded-4 p-4 p-md-5 mb-5">
-        <h3 className="fw-bold text-center mb-4 text-dark">
-          Pediatric Dental Services
-        </h3>
+       <h3
+  className="
+    fw-bold 
+    text-center 
+    text-dark 
+    mb-3 mb-sm-4
+    fs-6 fs-sm-5 fs-md-4 fs-lg-3
+  "
+  style={{
+    lineHeight: "1.3",
+    wordBreak: "break-word",
+  }}
+>
+  Pediatric Dental Services
+</h3>
++
 
         <div className="row g-4">
           {[

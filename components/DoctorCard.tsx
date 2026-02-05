@@ -58,10 +58,30 @@ export default function DoctorSection({ doctor, reverse = false }: any) {
                   {/* SPECIALIST TAG */}
                   {doctor.isChildSpecialist && (
                     <div className="mb-3 text-center text-lg-start">
-                      <span className="badge bg-light rounded-pill px-4 py-2 fs-6 shadow-sm text-dark">
-                        Pediatric / Child Dental Specialist
-                      </span>
-                    </div>
+  <span
+    className="
+      badge 
+      bg-light 
+      text-dark 
+      rounded-pill 
+      shadow-sm
+      px-2 px-sm-3 px-md-4
+      py-1 py-sm-2
+      fs-7 fs-sm-6 fs-md-5
+      d-inline-block
+      text-wrap
+    "
+    style={{
+      maxWidth: "100%",
+      lineHeight: "1.35",
+      whiteSpace: "normal",
+      textAlign: "center",
+    }}
+  >
+    Pediatric / Child Dental Specialist
+  </span>
+</div>
+
                   )}
 
                   {/* CTA BUTTON */}
