@@ -42,7 +42,7 @@ export default function DoctorSection({ doctor, reverse = false }: any) {
               <p className="text-muted fw-medium mb-2">{doctor.title}</p>
 
               <h5 className="doctor-specialization mb-3">
-                {doctor.specialization}
+                {/* {doctor.specialization} */}
               </h5>
 
               <p

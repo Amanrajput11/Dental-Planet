@@ -124,7 +124,7 @@ export default function DrKhushbooPage() {
                 Tilak Nagar, Indore
               </p>
               <p className="mb-1">📞 9893523334, 7400630334</p>
-              <p className="mb-0">✉️ dentalplanet@gmail.com</p>
+              <p className="mb-0">✉️ kbdentalplanet@gmail.com</p>
             </div>
           </div>
         </div>
