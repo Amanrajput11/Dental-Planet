@@ -4,7 +4,7 @@ export const doctors = [
     name: "Dr. Ankur Vatsal",
     slug: "dr-ankur",
     title:
-      "Master of Dental Surgery",
+      "Master of Dental Surgery, Cosmetic Dental Specialist",
     specialization: "Founder & Chief Dental Surgeon",
     image: "/images/ankur.jpeg",
     description:
@@ -15,7 +15,7 @@ export const doctors = [
     id: 2,
     name: "Dr. Khushboo Barjatya Vatsal",
     slug: "dr-khushboo",
-    // title: "Founder & Pediatric / Child Dental Specialist",
+    title: "Founder ",
     specialization: "Founder & Pediatric Dentist",
     image: "/images/khusboo.jpeg",
     description:

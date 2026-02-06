@@ -38,7 +38,7 @@ export default function DrAnkurPage() {
           </p>
 
           <p className="text-muted fw-medium mb-3">
-            Master of Dental Surgery, Cosmetic Dentist & Founder – Dental Planet
+            Cosmetic Dentist – Dental Planet
           </p>
 
           <p className="text-muted lh-lg">
