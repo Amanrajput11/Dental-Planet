@@ -15,7 +15,7 @@ export const doctors = [
     id: 2,
     name: "Dr. Khushboo Barjatya Vatsal",
     slug: "dr-khushboo",
-    title: "Founder ",
+    title: "Masters of Dental Surgery, Pediatric Dentist",
     specialization: "Founder & Pediatric Dentist",
     image: "/images/khusboo.jpeg",
     description:
